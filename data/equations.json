@@ -471,5 +471,352 @@
                 "narrative": "Gravitational body force."
             }
         }
+    },
+    {
+        "id": "mass-energy",
+        "category": "Special Relativity",
+        "title": "Einstein Mass–Energy Equivalence",
+        "previewTex": "E = mc^2",
+        "texTemplate": "{E} = {m} {c}^2",
+        "activeTerm": "E",
+        "terms": [
+            { "id": "E", "symbol": "E", "name": "Energy", "color": "#dc2626" },
+            { "id": "m", "symbol": "m", "name": "Mass", "color": "#7e22ce" },
+            { "id": "c", "symbol": "c^2", "name": "Speed of Light²", "color": "#ea580c" }
+        ],
+        "decoderHTML": "<a href=\"#mass-energy/E\" class=\"phrase phrase-red phrase-boxed active\" data-term=\"E\">Total rest energy</a> locked inside any object equals its <a href=\"#mass-energy/m\" class=\"phrase phrase-purple\" data-term=\"m\">rest mass</a> multiplied by the <a href=\"#mass-energy/c\" class=\"phrase phrase-orange\" data-term=\"c\">square of the speed of light</a> — an immense conversion factor.",
+        "varDetails": {
+            "E": {
+                "symbol": "E",
+                "title": "Rest Mass Energy",
+                "desc": "Total energy equivalent stored inside stationary matter.",
+                "tag1": "Rest Energy",
+                "tag2": "Joules [J]",
+                "narrative": "A single gram of matter contains 90 terajoules — equivalent to a nuclear bomb."
+            },
+            "m": {
+                "symbol": "m",
+                "title": "Rest Mass",
+                "desc": "Invariant mass of the object at rest.",
+                "tag1": "Inertial Mass",
+                "tag2": "Kilograms [kg]",
+                "narrative": "Mass and energy are the same quantity measured in different units."
+            },
+            "c": {
+                "symbol": "c^2",
+                "title": "Speed of Light Squared",
+                "desc": "The enormous conversion constant between mass and energy.",
+                "tag1": "Light Speed²",
+                "tag2": "m²/s²",
+                "narrative": "At 299,792,458 m/s squared, even tiny masses contain extraordinary energy."
+            }
+        }
+    },
+    {
+        "id": "tsiolkovsky",
+        "category": "Rocket Science",
+        "title": "Tsiolkovsky Rocket Equation",
+        "previewTex": "\\Delta v = v_e \\ln\\!\\left(\\frac{m_0}{m_f}\\right)",
+        "texTemplate": "{dv} = {ve} \\ln\\!\\left(\\frac{{m0}}{{mf}}\\right)",
+        "activeTerm": "dv",
+        "terms": [
+            { "id": "dv", "symbol": "\\Delta v", "name": "Delta-V", "color": "#dc2626" },
+            { "id": "ve", "symbol": "v_e", "name": "Exhaust Speed", "color": "#2563eb" },
+            { "id": "m0", "symbol": "m_0", "name": "Wet Mass", "color": "#7e22ce" },
+            { "id": "mf", "symbol": "m_f", "name": "Dry Mass", "color": "#16a34a" }
+        ],
+        "decoderHTML": "Total rocket <a href=\"#tsiolkovsky/dv\" class=\"phrase phrase-red phrase-boxed active\" data-term=\"dv\">velocity change</a> equals <a href=\"#tsiolkovsky/ve\" class=\"phrase phrase-blue\" data-term=\"ve\">exhaust speed</a> times the natural log of <a href=\"#tsiolkovsky/m0\" class=\"phrase phrase-purple\" data-term=\"m0\">fully fueled mass</a> divided by <a href=\"#tsiolkovsky/mf\" class=\"phrase phrase-green\" data-term=\"mf\">empty dry mass</a>.",
+        "varDetails": {
+            "dv": {
+                "symbol": "\\Delta v",
+                "title": "Delta-V — Total Velocity Budget",
+                "desc": "Total velocity change available from burning all propellant.",
+                "tag1": "Velocity Budget",
+                "tag2": "m/s",
+                "narrative": "Getting to low Earth orbit requires ~9,400 m/s of delta-V — split between gravity, drag, and orbital insertion."
+            },
+            "ve": {
+                "symbol": "v_e",
+                "title": "Effective Exhaust Velocity",
+                "desc": "Speed at which propellant gases exit the rocket nozzle.",
+                "tag1": "Propulsion",
+                "tag2": "m/s",
+                "narrative": "Hydrogen-oxygen engines achieve ~4,400 m/s exhaust speed — the highest of any chemical propellant."
+            },
+            "m0": {
+                "symbol": "m_0",
+                "title": "Initial Wet Mass",
+                "desc": "Total mass with full propellant load at ignition.",
+                "tag1": "Fueled Mass",
+                "tag2": "Kilograms [kg]",
+                "narrative": "The Saturn V launched with 2.8 million kg — 94% of it was propellant."
+            },
+            "mf": {
+                "symbol": "m_f",
+                "title": "Final Dry Mass",
+                "desc": "Remaining structure and payload after propellant burns.",
+                "tag1": "Dry Mass",
+                "tag2": "Kilograms [kg]",
+                "narrative": "Staging rockets discard empty tanks to maximize the mass ratio."
+            }
+        }
+    },
+    {
+        "id": "schwarzschild",
+        "category": "General Relativity",
+        "title": "Schwarzschild Black Hole Radius",
+        "previewTex": "r_s = \\frac{2GM}{c^2}",
+        "texTemplate": "{rs} = \\frac{2 {G} {M}}{{c}^2}",
+        "activeTerm": "rs",
+        "terms": [
+            { "id": "rs", "symbol": "r_s", "name": "Event Horizon", "color": "#7e22ce" },
+            { "id": "G", "symbol": "G", "name": "Gravity Constant", "color": "#ea580c" },
+            { "id": "M", "symbol": "M", "name": "Mass", "color": "#dc2626" },
+            { "id": "c", "symbol": "c^2", "name": "Speed of Light²", "color": "#0d9488" }
+        ],
+        "decoderHTML": "The <a href=\"#schwarzschild/rs\" class=\"phrase phrase-purple phrase-boxed active\" data-term=\"rs\">event horizon radius</a> of a black hole is set by <a href=\"#schwarzschild/G\" class=\"phrase phrase-orange\" data-term=\"G\">Newton's gravity constant</a> and the object's <a href=\"#schwarzschild/M\" class=\"phrase phrase-red\" data-term=\"M\">mass</a>, divided by the <a href=\"#schwarzschild/c\" class=\"phrase phrase-teal\" data-term=\"c\">speed of light squared</a>.",
+        "varDetails": {
+            "rs": {
+                "symbol": "r_s",
+                "title": "Schwarzschild Radius",
+                "desc": "Critical radius below which spacetime curvature traps even light.",
+                "tag1": "Event Horizon",
+                "tag2": "Meters [m]",
+                "narrative": "Compress Earth to 9mm and it collapses into a black hole."
+            },
+            "G": {
+                "symbol": "G",
+                "title": "Gravitational Constant",
+                "desc": "Universal coupling strength of gravitational attraction.",
+                "tag1": "Newton's G",
+                "tag2": "m³/(kg·s²)",
+                "narrative": "One of the most precisely measured constants in physics."
+            },
+            "M": {
+                "symbol": "M",
+                "title": "Collapsed Object Mass",
+                "desc": "Total mass compressed inside the Schwarzschild radius.",
+                "tag1": "Central Mass",
+                "tag2": "Kilograms [kg]",
+                "narrative": "Stellar black holes contain millions of solar masses worth of collapsed matter."
+            },
+            "c": {
+                "symbol": "c^2",
+                "title": "Speed of Light Squared",
+                "desc": "Relativistic scaling factor that resists curvature.",
+                "tag1": "Light Speed²",
+                "tag2": "m²/s²",
+                "narrative": "The enormous value of c² means only incredibly dense objects become black holes."
+            }
+        }
+    },
+    {
+        "id": "heisenberg",
+        "category": "Quantum Mechanics",
+        "title": "Heisenberg Uncertainty Principle",
+        "previewTex": "\\Delta x \\cdot \\Delta p \\geq \\frac{\\hbar}{2}",
+        "texTemplate": "{dx} \\cdot {dp} \\geq \\frac{{hbar}}{2}",
+        "activeTerm": "dx",
+        "terms": [
+            { "id": "dx", "symbol": "\\Delta x", "name": "Position Uncertainty", "color": "#dc2626" },
+            { "id": "dp", "symbol": "\\Delta p", "name": "Momentum Uncertainty", "color": "#2563eb" },
+            { "id": "hbar", "symbol": "\\hbar", "name": "Reduced Planck Constant", "color": "#7e22ce" }
+        ],
+        "decoderHTML": "<a href=\"#heisenberg/dx\" class=\"phrase phrase-red phrase-boxed active\" data-term=\"dx\">Position uncertainty</a> and <a href=\"#heisenberg/dp\" class=\"phrase phrase-blue\" data-term=\"dp\">momentum uncertainty</a> can never both be zero simultaneously — their product is always at least half the <a href=\"#heisenberg/hbar\" class=\"phrase phrase-purple\" data-term=\"hbar\">reduced Planck constant</a>.",
+        "varDetails": {
+            "dx": {
+                "symbol": "\\Delta x",
+                "title": "Position Uncertainty",
+                "desc": "Fundamental quantum fuzziness in knowing where a particle is.",
+                "tag1": "Spatial Blur",
+                "tag2": "Meters [m]",
+                "narrative": "Pinpoint a particle's location precisely and its velocity becomes completely unknowable."
+            },
+            "dp": {
+                "symbol": "\\Delta p",
+                "title": "Momentum Uncertainty",
+                "desc": "Fundamental quantum fuzziness in knowing how fast a particle moves.",
+                "tag1": "Momentum Blur",
+                "tag2": "kg·m/s",
+                "narrative": "Electrons confined to atomic nuclei would require impossibly high momenta — proving atoms must be larger."
+            },
+            "hbar": {
+                "symbol": "\\hbar",
+                "title": "Reduced Planck Constant",
+                "desc": "Fundamental quantum of action — h divided by 2π.",
+                "tag1": "Quantum Scale",
+                "tag2": "J·s",
+                "narrative": "At 1.055 × 10⁻³⁴ J·s, quantum uncertainty is utterly invisible at human scales."
+            }
+        }
+    },
+    {
+        "id": "maxwell-em",
+        "category": "Electromagnetism",
+        "title": "Maxwell Electromagnetic Wave Speed",
+        "previewTex": "c = \\frac{1}{\\sqrt{\\varepsilon_0 \\, \\mu_0}}",
+        "texTemplate": "{c} = \\frac{1}{\\sqrt{{eps0} \\, {mu0}}}",
+        "activeTerm": "c",
+        "terms": [
+            { "id": "c", "symbol": "c", "name": "Speed of Light", "color": "#ea580c" },
+            { "id": "eps0", "symbol": "\\varepsilon_0", "name": "Electric Permittivity", "color": "#2563eb" },
+            { "id": "mu0", "symbol": "\\mu_0", "name": "Magnetic Permeability", "color": "#dc2626" }
+        ],
+        "decoderHTML": "The <a href=\"#maxwell-em/c\" class=\"phrase phrase-orange phrase-boxed active\" data-term=\"c\">speed of light</a> emerges purely from <a href=\"#maxwell-em/eps0\" class=\"phrase phrase-blue\" data-term=\"eps0\">electric field permittivity</a> and <a href=\"#maxwell-em/mu0\" class=\"phrase phrase-red\" data-term=\"mu0\">magnetic field permeability</a> of free space — Maxwell's greatest discovery.",
+        "varDetails": {
+            "c": {
+                "symbol": "c",
+                "title": "Speed of Light in Vacuum",
+                "desc": "Universal speed limit for all information and matter.",
+                "tag1": "Light Speed",
+                "tag2": "m/s",
+                "narrative": "Maxwell predicted c from pure field theory in 1865 — before anyone had measured it directly."
+            },
+            "eps0": {
+                "symbol": "\\varepsilon_0",
+                "title": "Electric Permittivity of Free Space",
+                "desc": "How strongly electric fields can be established in a vacuum.",
+                "tag1": "Electric Field",
+                "tag2": "F/m",
+                "narrative": "Determines how much electric field energy can be stored in empty space."
+            },
+            "mu0": {
+                "symbol": "\\mu_0",
+                "title": "Magnetic Permeability of Free Space",
+                "desc": "How strongly magnetic fields propagate through a vacuum.",
+                "tag1": "Magnetic Field",
+                "tag2": "H/m",
+                "narrative": "Together with permittivity, it sets the fundamental propagation speed of light."
+            }
+        }
+    },
+    {
+        "id": "carnot",
+        "category": "Thermodynamics",
+        "title": "Carnot Maximum Heat Engine Efficiency",
+        "previewTex": "\\eta = 1 - \\frac{T_C}{T_H}",
+        "texTemplate": "{eta} = 1 - \\frac{{TC}}{{TH}}",
+        "activeTerm": "eta",
+        "terms": [
+            { "id": "eta", "symbol": "\\eta", "name": "Efficiency", "color": "#16a34a" },
+            { "id": "TC", "symbol": "T_C", "name": "Cold Reservoir", "color": "#2563eb" },
+            { "id": "TH", "symbol": "T_H", "name": "Hot Reservoir", "color": "#dc2626" }
+        ],
+        "decoderHTML": "Maximum <a href=\"#carnot/eta\" class=\"phrase phrase-green phrase-boxed active\" data-term=\"eta\">heat engine efficiency</a> depends only on the ratio of <a href=\"#carnot/TC\" class=\"phrase phrase-blue\" data-term=\"TC\">cold sink temperature</a> to <a href=\"#carnot/TH\" class=\"phrase phrase-red\" data-term=\"TH\">hot source temperature</a> — no real engine can beat this limit.",
+        "varDetails": {
+            "eta": {
+                "symbol": "\\eta",
+                "title": "Carnot Efficiency",
+                "desc": "Maximum fraction of heat that can be converted to useful work.",
+                "tag1": "Thermal Efficiency",
+                "tag2": "Ratio [0–1]",
+                "narrative": "The best steam turbines reach ~45% efficiency. A perfect Carnot engine at those temps would reach ~60%."
+            },
+            "TC": {
+                "symbol": "T_C",
+                "title": "Cold Reservoir Temperature",
+                "desc": "Temperature of the heat sink where waste energy is rejected.",
+                "tag1": "Cold Side",
+                "tag2": "Kelvin [K]",
+                "narrative": "Cooling the exhaust temperature dramatically raises engine efficiency."
+            },
+            "TH": {
+                "symbol": "T_H",
+                "title": "Hot Source Temperature",
+                "desc": "Temperature of the thermal energy source driving the engine.",
+                "tag1": "Hot Side",
+                "tag2": "Kelvin [K]",
+                "narrative": "Raising combustion temperature is the single most effective way to extract more work."
+            }
+        }
+    },
+    {
+        "id": "kepler-third",
+        "category": "Orbital Mechanics",
+        "title": "Kepler's Third Law of Orbital Periods",
+        "previewTex": "T^2 = \\frac{4\\pi^2}{GM} a^3",
+        "texTemplate": "{T}^2 = \\frac{4\\pi^2}{{G}{M}} {a}^3",
+        "activeTerm": "T",
+        "terms": [
+            { "id": "T", "symbol": "T^2", "name": "Orbital Period²", "color": "#7e22ce" },
+            { "id": "G", "symbol": "G", "name": "Gravity Constant", "color": "#ea580c" },
+            { "id": "M", "symbol": "M", "name": "Central Mass", "color": "#dc2626" },
+            { "id": "a", "symbol": "a^3", "name": "Semi-Major Axis³", "color": "#2563eb" }
+        ],
+        "decoderHTML": "The square of the <a href=\"#kepler-third/T\" class=\"phrase phrase-purple phrase-boxed active\" data-term=\"T\">orbital period</a> scales with the cube of the <a href=\"#kepler-third/a\" class=\"phrase phrase-blue\" data-term=\"a\">orbit size</a>, governed by <a href=\"#kepler-third/G\" class=\"phrase phrase-orange\" data-term=\"G\">Newton's gravity constant</a> and the <a href=\"#kepler-third/M\" class=\"phrase phrase-red\" data-term=\"M\">central body's mass</a>.",
+        "varDetails": {
+            "T": {
+                "symbol": "T^2",
+                "title": "Orbital Period Squared",
+                "desc": "Time squared for one complete orbit around the central body.",
+                "tag1": "Period²",
+                "tag2": "s²",
+                "narrative": "Earth's year of 365 days, Mars's 687-day orbit — all predicted exactly by this single equation."
+            },
+            "G": {
+                "symbol": "G",
+                "title": "Universal Gravitational Constant",
+                "desc": "Fundamental strength of gravitational attraction.",
+                "tag1": "Newton's G",
+                "tag2": "m³/(kg·s²)",
+                "narrative": "The same constant governs orbits from electrons around nuclei to galaxies around black holes."
+            },
+            "M": {
+                "symbol": "M",
+                "title": "Central Body Mass",
+                "desc": "Mass of the dominant gravitational attractor.",
+                "tag1": "Central Mass",
+                "tag2": "Kilograms [kg]",
+                "narrative": "Astronomers use this law to weigh stars and planets purely by watching orbiting moons."
+            },
+            "a": {
+                "symbol": "a^3",
+                "title": "Semi-Major Axis Cubed",
+                "desc": "Half the longest diameter of the elliptical orbit, cubed.",
+                "tag1": "Orbit Size³",
+                "tag2": "m³",
+                "narrative": "Doubling orbit size multiplies orbital period by 2^(3/2) — about 2.83 times longer."
+            }
+        }
+    },
+    {
+        "id": "lorentz",
+        "category": "Special Relativity",
+        "title": "Lorentz Time Dilation Factor",
+        "previewTex": "\\gamma = \\frac{1}{\\sqrt{1 - \\dfrac{v^2}{c^2}}}",
+        "texTemplate": "{gamma} = \\frac{1}{\\sqrt{1 - \\dfrac{{v}^2}{{c}^2}}}",
+        "activeTerm": "gamma",
+        "terms": [
+            { "id": "gamma", "symbol": "\\gamma", "name": "Lorentz Factor", "color": "#ea580c" },
+            { "id": "v", "symbol": "v^2", "name": "Object Speed²", "color": "#dc2626" },
+            { "id": "c", "symbol": "c^2", "name": "Speed of Light²", "color": "#7e22ce" }
+        ],
+        "decoderHTML": "The <a href=\"#lorentz/gamma\" class=\"phrase phrase-orange phrase-boxed active\" data-term=\"gamma\">Lorentz factor</a> stretches time and contracts space as <a href=\"#lorentz/v\" class=\"phrase phrase-red\" data-term=\"v\">object speed</a> approaches the <a href=\"#lorentz/c\" class=\"phrase phrase-purple\" data-term=\"c\">speed of light</a> — reaching infinity at c itself.",
+        "varDetails": {
+            "gamma": {
+                "symbol": "\\gamma",
+                "title": "Lorentz Gamma Factor",
+                "desc": "Relativistic dilation factor — how much time stretches and length contracts.",
+                "tag1": "Dilation Factor",
+                "tag2": "Ratio [≥1]",
+                "narrative": "GPS satellites travel at 14,000 km/h — without gamma correction, navigation would drift 10 km/day."
+            },
+            "v": {
+                "symbol": "v^2",
+                "title": "Object Velocity Squared",
+                "desc": "Speed of the moving object relative to an observer.",
+                "tag1": "Relative Speed²",
+                "tag2": "(m/s)²",
+                "narrative": "At 99% the speed of light, time runs 7× slower aboard the spacecraft."
+            },
+            "c": {
+                "symbol": "c^2",
+                "title": "Speed of Light Squared",
+                "desc": "The universal speed limit that governs spacetime geometry.",
+                "tag1": "Light Speed²",
+                "tag2": "(m/s)²",
+                "narrative": "As v approaches c, gamma shoots toward infinity — infinite energy would be needed to reach light speed."
+            }
+        }
     }
 ]
