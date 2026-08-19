@@ -1,0 +1,475 @@
+[
+    {
+        "id": "canard-pitch",
+        "category": "Aerodynamics",
+        "title": "Canard Pitch Stability & Equilibrium",
+        "previewTex": "C_m = C_{m0} + \\left( \\frac{x_{cg} - x_{ac}}{c} \\right) C_L - V_{canard} \\, C_{L,canard}",
+        "texTemplate": "{Cm} = {Cm0} + \\left( \\frac{{xcg}}{{c}} \\right) {CL} - {Vcanard} \\, {CLcanard}",
+        "activeTerm": "CLcanard",
+        "terms": [
+            { "id": "Cm", "symbol": "C_m", "name": "Pitching Moment", "color": "#7e22ce" },
+            { "id": "Cm0", "symbol": "C_{m0}", "name": "Baseline Camber Moment", "color": "#ea580c" },
+            { "id": "xcg", "symbol": "x_{cg} - x_{ac}", "name": "Gravity Offset", "color": "#dc2626" },
+            { "id": "c", "symbol": "c", "name": "Wing Chord", "color": "#0d9488" },
+            { "id": "CL", "symbol": "C_L", "name": "Wing Lift", "color": "#16a34a" },
+            { "id": "Vcanard", "symbol": "V_{canard}", "name": "Canard Volume Ratio", "color": "#2563eb" },
+            { "id": "CLcanard", "symbol": "C_{L,canard}(\\delta_e)", "name": "Canard Elevator Control Lift", "color": "#ea580c" }
+        ],
+        "decoderHTML": "The <a href=\"#canard-pitch/Cm\" class=\"phrase phrase-purple\" data-term=\"Cm\">total pitching moment</a> equals the <a href=\"#canard-pitch/Cm0\" class=\"phrase phrase-orange\" data-term=\"Cm0\">baseline wing camber moment</a> plus the lift moment from <a href=\"#canard-pitch/xcg\" class=\"phrase phrase-red\" data-term=\"xcg\">gravity offset</a> divided by <a href=\"#canard-pitch/c\" class=\"phrase phrase-teal\" data-term=\"c\">wing chord</a> times <a href=\"#canard-pitch/CL\" class=\"phrase phrase-green\" data-term=\"CL\">wing lift</a>, minus <a href=\"#canard-pitch/CLcanard\" class=\"phrase phrase-orange phrase-boxed active\" data-term=\"CLcanard\">canard elevator control lift</a> scaled by <a href=\"#canard-pitch/Vcanard\" class=\"phrase phrase-blue\" data-term=\"Vcanard\">canard volume ratio</a>.",
+        "varDetails": {
+            "CLcanard": {
+                "symbol": "C_{L,canard}(\\delta_e)",
+                "title": "Canard Elevator Lift Coefficient",
+                "desc": "Upward control lift created by deflecting the forward elevator surface.",
+                "tag1": "Control Input",
+                "tag2": "Ratio [1]",
+                "narrative": "Deflecting the forward lever tilts the canard wing up or down, directly trimming pitch angle and climb trajectory."
+            },
+            "Cm": {
+                "symbol": "C_m",
+                "title": "Net Pitching Moment Coefficient",
+                "desc": "Rotational force trying to pitch the aircraft nose upward or downward.",
+                "tag1": "Pitching Torque",
+                "tag2": "Ratio [1]",
+                "narrative": "When total pitching moment equals zero, the aircraft stays in steady level flight."
+            },
+            "Cm0": {
+                "symbol": "C_{m0}",
+                "title": "Baseline Camber Pitching Moment",
+                "desc": "Inherent nose-down rotation created by curved wing airfoils.",
+                "tag1": "Airfoil Constant",
+                "tag2": "Ratio [1]",
+                "narrative": "Curved wings naturally try to pitch downward, requiring horizontal control surfaces to keep the nose balanced."
+            },
+            "xcg": {
+                "symbol": "x_{cg} - x_{ac}",
+                "title": "Center of Gravity Offset",
+                "desc": "Distance between center of gravity and the wing aerodynamic center.",
+                "tag1": "Static Margin",
+                "tag2": "Meters [m]",
+                "narrative": "Placing gravity ahead of wing lift creates natural pitch stability."
+            },
+            "c": {
+                "symbol": "c",
+                "title": "Mean Aerodynamic Chord",
+                "desc": "Average front-to-back wing width used as reference length.",
+                "tag1": "Reference Width",
+                "tag2": "Meters [m]",
+                "narrative": "Normalizes the gravity offset distance across different aircraft sizes."
+            },
+            "CL": {
+                "symbol": "C_L",
+                "title": "Main Wing Lift Coefficient",
+                "desc": "Amount of upward lift force produced by the primary wings.",
+                "tag1": "Wing Lift Factor",
+                "tag2": "Ratio [1]",
+                "narrative": "As main wing lift grows, it creates rotational pitch torque around the center of gravity."
+            },
+            "Vcanard": {
+                "symbol": "V_{canard}",
+                "title": "Canard Volume Ratio",
+                "desc": "Relative size and leverage arm of the forward elevator.",
+                "tag1": "Leverage Arm",
+                "tag2": "Ratio [1]",
+                "narrative": "Measures how strongly the forward elevator can push the nose up or down."
+            }
+        }
+    },
+    {
+        "id": "prandtl-drag",
+        "category": "Aerodynamics",
+        "title": "Prandtl Induced Drag & Wing Warping",
+        "previewTex": "C_{D_i} = \\frac{C_L^2}{\\pi \\cdot AR \\cdot e}",
+        "texTemplate": "{CDi} = \\frac{{CL}}{\\pi \\cdot {AR} \\cdot {e}}",
+        "activeTerm": "CDi",
+        "terms": [
+            { "id": "CDi", "symbol": "C_{D_i}", "name": "Induced Drag", "color": "#dc2626" },
+            { "id": "CL", "symbol": "C_L^2", "name": "Lift Squared", "color": "#16a34a" },
+            { "id": "AR", "symbol": "AR", "name": "Aspect Ratio", "color": "#2563eb" },
+            { "id": "e", "symbol": "e", "name": "Span Efficiency", "color": "#7e22ce" }
+        ],
+        "decoderHTML": "The <a href=\"#prandtl-drag/CDi\" class=\"phrase phrase-red phrase-boxed active\" data-term=\"CDi\">extra drag created by lift</a> grows with the square of the <a href=\"#prandtl-drag/CL\" class=\"phrase phrase-green\" data-term=\"CL\">lift coefficient</a>, but drops when you increase <a href=\"#prandtl-drag/AR\" class=\"phrase phrase-blue\" data-term=\"AR\">wing aspect ratio</a> or <a href=\"#prandtl-drag/e\" class=\"phrase phrase-purple\" data-term=\"e\">span efficiency</a>.",
+        "varDetails": {
+            "CDi": {
+                "symbol": "C_{D_i}",
+                "title": "Induced Drag Coefficient",
+                "desc": "Inevitable backward drag penalty caused whenever a wing generates upward lift.",
+                "tag1": "Vortex Drag",
+                "tag2": "Ratio [1]",
+                "narrative": "Generating lift creates swirling vortices at wingtips that drag the plane backward."
+            },
+            "CL": {
+                "symbol": "C_L^2",
+                "title": "Lift Coefficient Squared",
+                "desc": "Square of the total lift factor.",
+                "tag1": "Lift Multiplier",
+                "tag2": "Ratio [1]",
+                "narrative": "Doubling lift quadruples the induced drag penalty."
+            },
+            "AR": {
+                "symbol": "AR",
+                "title": "Wing Aspect Ratio",
+                "desc": "Ratio of wingspan to wing width.",
+                "tag1": "Wing Shape",
+                "tag2": "Ratio [1]",
+                "narrative": "Long slender glider wings reduce tip vortices and cut induced drag dramatically."
+            },
+            "e": {
+                "symbol": "e",
+                "title": "Span Efficiency Factor",
+                "desc": "How evenly lift is spread across wingspan.",
+                "tag1": "Efficiency Factor",
+                "tag2": "Ratio [1]",
+                "narrative": "Elliptical wings achieve maximum efficiency (e = 1.0)."
+            }
+        }
+    },
+    {
+        "id": "navier-stokes",
+        "category": "Fluid Mechanics",
+        "title": "Navier–Stokes Fluid Dynamics",
+        "previewTex": "\\rho \\left( \\frac{\\partial \\mathbf{v}}{\\partial t} + \\mathbf{v} \\cdot \\nabla \\mathbf{v} \\right) = -\\nabla p + \\mu \\nabla^2 \\mathbf{v} + \\rho \\mathbf{g}",
+        "texTemplate": "{rho} \\left( \\frac{\\partial {v}}{\\partial t} + {v} \\cdot \\nabla {v} \\right) = -\\nabla {p} + {mu} \\nabla^2 {v} + {rho} {g}",
+        "activeTerm": "v",
+        "terms": [
+            { "id": "rho", "symbol": "\\rho", "name": "Density", "color": "#7e22ce" },
+            { "id": "v", "symbol": "\\mathbf{v}", "name": "Velocity", "color": "#ea580c" },
+            { "id": "p", "symbol": "p", "name": "Pressure", "color": "#dc2626" },
+            { "id": "mu", "symbol": "\\mu", "name": "Viscosity", "color": "#0d9488" },
+            { "id": "g", "symbol": "\\mathbf{g}", "name": "Gravity", "color": "#16a34a" }
+        ],
+        "decoderHTML": "Fluid flow acceleration depends on <a href=\"#navier-stokes/rho\" class=\"phrase phrase-purple\" data-term=\"rho\">fluid density</a> and <a href=\"#navier-stokes/v\" class=\"phrase phrase-orange phrase-boxed active\" data-term=\"v\">fluid velocity</a>, pushed by <a href=\"#navier-stokes/p\" class=\"phrase phrase-red\" data-term=\"p\">pressure differences</a>, slowed by <a href=\"#navier-stokes/mu\" class=\"phrase phrase-teal\" data-term=\"mu\">viscous friction</a>, and pulled by <a href=\"#navier-stokes/g\" class=\"phrase phrase-green\" data-term=\"g\">gravity</a>.",
+        "varDetails": {
+            "v": {
+                "symbol": "\\mathbf{v}",
+                "title": "Fluid Velocity Vector",
+                "desc": "Speed and direction of fluid particles at every point in space.",
+                "tag1": "Flow Speed",
+                "tag2": "Meters/sec [m/s]",
+                "narrative": "Tracks how air speeds up over a wing top and slows down near solid surfaces."
+            },
+            "rho": {
+                "symbol": "\\rho",
+                "title": "Fluid Density",
+                "desc": "Mass of air per unit volume.",
+                "tag1": "Mass Density",
+                "tag2": "kg/m³",
+                "narrative": "Higher density air has greater inertia during acceleration."
+            },
+            "p": {
+                "symbol": "p",
+                "title": "Static Pressure Field",
+                "desc": "Pushing force exerted by fluid molecules.",
+                "tag1": "Pressure",
+                "tag2": "Pascals [Pa]",
+                "narrative": "High pressure pushes fluid toward low pressure regions."
+            },
+            "mu": {
+                "symbol": "\\mu",
+                "title": "Dynamic Viscosity",
+                "desc": "Fluid thickness and internal friction.",
+                "tag1": "Fluid Friction",
+                "tag2": "Pa·s",
+                "narrative": "Viscosity causes skin friction drag along airfoil boundaries."
+            },
+            "g": {
+                "symbol": "\\mathbf{g}",
+                "title": "Gravitational Acceleration",
+                "desc": "Downward force of gravity.",
+                "tag1": "Gravity Vector",
+                "tag2": "m/s²",
+                "narrative": "Pulls downward on fluid mass."
+            }
+        }
+    },
+    {
+        "id": "bernoulli",
+        "category": "Hydrodynamics",
+        "title": "Bernoulli Dynamic Pressure & Energy",
+        "previewTex": "p + \\frac{1}{2}\\rho v^2 + \\rho g h = \\text{const.}",
+        "texTemplate": "{p} + \\frac{1}{2} {rho} {v} + {rho} {g} {h} = \\text{const.}",
+        "activeTerm": "v",
+        "terms": [
+            { "id": "p", "symbol": "p", "name": "Static Pressure", "color": "#dc2626" },
+            { "id": "rho", "symbol": "\\rho", "name": "Density", "color": "#7e22ce" },
+            { "id": "v", "symbol": "v^2", "name": "Speed Squared", "color": "#ea580c" },
+            { "id": "g", "symbol": "g", "name": "Gravity", "color": "#16a34a" },
+            { "id": "h", "symbol": "h", "name": "Elevation", "color": "#0d9488" }
+        ],
+        "decoderHTML": "Along a streamline, <a href=\"#bernoulli/p\" class=\"phrase phrase-red\" data-term=\"p\">static pressure</a> trades directly with <a href=\"#bernoulli/v\" class=\"phrase phrase-orange phrase-boxed active\" data-term=\"v\">dynamic pressure (fluid speed squared)</a> and <a href=\"#bernoulli/h\" class=\"phrase phrase-teal\" data-term=\"h\">elevation height</a> under <a href=\"#bernoulli/g\" class=\"phrase phrase-green\" data-term=\"g\">gravity</a> to keep total energy constant.",
+        "varDetails": {
+            "v": {
+                "symbol": "v^2",
+                "title": "Flow Speed Kinetic Energy",
+                "desc": "Kinetic energy term inside dynamic pressure.",
+                "tag1": "Dynamic Pressure",
+                "tag2": "(m/s)²",
+                "narrative": "When air speeds up over a curved wing top, static pressure drops, creating suction lift."
+            },
+            "p": {
+                "symbol": "p",
+                "title": "Static Pressure",
+                "desc": "Pressure felt when moving alongside fluid particles.",
+                "tag1": "Static Pressure",
+                "tag2": "Pascals [Pa]",
+                "narrative": "Higher static pressure underneath pushes the wing upward toward lower pressure above."
+            },
+            "rho": {
+                "symbol": "\\rho",
+                "title": "Fluid Density",
+                "desc": "Air mass concentration.",
+                "tag1": "Density",
+                "tag2": "kg/m³",
+                "narrative": "Denser air produces greater pressure changes for the same speed."
+            },
+            "g": {
+                "symbol": "g",
+                "title": "Gravitational Constant",
+                "desc": "Acceleration due to gravity.",
+                "tag1": "Gravity Constant",
+                "tag2": "m/s²",
+                "narrative": "Accounts for elevation weight differences."
+            },
+            "h": {
+                "symbol": "h",
+                "title": "Elevation Height",
+                "desc": "Height above datum level.",
+                "tag1": "Height",
+                "tag2": "Meters [m]",
+                "narrative": "Negligible for thin wings, but essential in pipe hydraulics."
+            }
+        }
+    },
+    {
+        "id": "reynolds",
+        "category": "Boundary Layer",
+        "title": "Reynolds Number Flow Criterion",
+        "previewTex": "Re = \\frac{\\rho \\cdot v \\cdot L}{\\mu}",
+        "texTemplate": "{Re} = \\frac{{rho} \\cdot {v} \\cdot {L}}{{mu}}",
+        "activeTerm": "Re",
+        "terms": [
+            { "id": "Re", "symbol": "Re", "name": "Reynolds Number", "color": "#7e22ce" },
+            { "id": "rho", "symbol": "\\rho", "name": "Density", "color": "#dc2626" },
+            { "id": "v", "symbol": "v", "name": "Speed", "color": "#ea580c" },
+            { "id": "L", "symbol": "L", "name": "Chord Length", "color": "#2563eb" },
+            { "id": "mu", "symbol": "\\mu", "name": "Viscosity", "color": "#0d9488" }
+        ],
+        "decoderHTML": "The <a href=\"#reynolds/Re\" class=\"phrase phrase-purple phrase-boxed active\" data-term=\"Re\">Reynolds number</a> compares fluid momentum against <a href=\"#reynolds/mu\" class=\"phrase phrase-teal\" data-term=\"mu\">viscosity</a> using <a href=\"#reynolds/rho\" class=\"phrase phrase-red\" data-term=\"rho\">density</a>, <a href=\"#reynolds/v\" class=\"phrase phrase-orange\" data-term=\"v\">speed</a>, and <a href=\"#reynolds/L\" class=\"phrase phrase-blue\" data-term=\"L\">chord length</a> to predict smooth vs turbulent flow.",
+        "varDetails": {
+            "Re": {
+                "symbol": "Re",
+                "title": "Reynolds Number",
+                "desc": "Ratio of fluid momentum forces to viscous friction forces.",
+                "tag1": "Flow Criterion",
+                "tag2": "Ratio [1]",
+                "narrative": "High Re means flow becomes turbulent; low Re means smooth laminar flow."
+            },
+            "rho": {
+                "symbol": "\\rho",
+                "title": "Fluid Density",
+                "desc": "Air mass concentration.",
+                "tag1": "Density",
+                "tag2": "kg/m³",
+                "narrative": "Increases flow momentum."
+            },
+            "v": {
+                "symbol": "v",
+                "title": "Flight Speed",
+                "desc": "Speed of airflow relative to wing.",
+                "tag1": "Velocity",
+                "tag2": "m/s",
+                "narrative": "Higher speeds increase Reynolds number."
+            },
+            "L": {
+                "symbol": "L",
+                "title": "Wing Chord Length",
+                "desc": "Front-to-back wing width.",
+                "tag1": "Scale Length",
+                "tag2": "Meters [m]",
+                "narrative": "Full-size wings operate at much higher Reynolds numbers than small wind tunnel models."
+            },
+            "mu": {
+                "symbol": "\\mu",
+                "title": "Air Viscosity",
+                "desc": "Fluid stickiness factor.",
+                "tag1": "Viscosity",
+                "tag2": "Pa·s",
+                "narrative": "Viscosity dampens out turbulence."
+            }
+        }
+    },
+    {
+        "id": "lift",
+        "category": "Flight Dynamics",
+        "title": "Wing Aerodynamic Lift Force",
+        "previewTex": "L = \\frac{1}{2}\\rho v^2 \\cdot S \\cdot C_L",
+        "texTemplate": "{L} = \\frac{1}{2} {rho} {v} \\cdot {S} \\cdot {CL}",
+        "activeTerm": "L",
+        "terms": [
+            { "id": "L", "symbol": "L", "name": "Lift Force", "color": "#dc2626" },
+            { "id": "rho", "symbol": "\\rho", "name": "Density", "color": "#7e22ce" },
+            { "id": "v", "symbol": "v^2", "name": "Speed Squared", "color": "#ea580c" },
+            { "id": "S", "symbol": "S", "name": "Wing Area", "color": "#2563eb" },
+            { "id": "CL", "symbol": "C_L", "name": "Lift Coefficient", "color": "#16a34a" }
+        ],
+        "decoderHTML": "<a href=\"#lift/L\" class=\"phrase phrase-red phrase-boxed active\" data-term=\"L\">Total aerodynamic lift</a> is generated by multiplying <a href=\"#lift/rho\" class=\"phrase phrase-purple\" data-term=\"rho\">air density</a>, <a href=\"#lift/v\" class=\"phrase phrase-orange\" data-term=\"v\">airspeed squared</a>, <a href=\"#lift/S\" class=\"phrase phrase-blue\" data-term=\"S\">wing area</a>, and the <a href=\"#lift/CL\" class=\"phrase phrase-green\" data-term=\"CL\">wing lift coefficient</a>.",
+        "varDetails": {
+            "L": {
+                "symbol": "L",
+                "title": "Total Upward Lift Force",
+                "desc": "Net upward force carrying aircraft weight in the sky.",
+                "tag1": "Upward Force",
+                "tag2": "Newtons [N]",
+                "narrative": "Must equal total aircraft weight for level flight."
+            },
+            "rho": {
+                "symbol": "\\rho",
+                "title": "Air Density",
+                "desc": "Mass of air molecules per volume.",
+                "tag1": "Air Density",
+                "tag2": "kg/m³",
+                "narrative": "Thinner air at high altitudes reduces lift unless flying faster."
+            },
+            "v": {
+                "symbol": "v^2",
+                "title": "Airspeed Squared",
+                "desc": "Square of true airspeed.",
+                "tag1": "Dynamic Speed",
+                "tag2": "(m/s)²",
+                "narrative": "Doubling flight speed quadruples upward lift force."
+            },
+            "S": {
+                "symbol": "S",
+                "title": "Wing Planform Area",
+                "desc": "Top-down surface area of wings.",
+                "tag1": "Surface Area",
+                "tag2": "Square Meters [m²]",
+                "narrative": "Larger wing area creates more lift for slow-flying planes."
+            },
+            "CL": {
+                "symbol": "C_L",
+                "title": "Lift Coefficient",
+                "desc": "Airfoil lifting capability based on angle of attack.",
+                "tag1": "Lift Efficiency",
+                "tag2": "Ratio [1]",
+                "narrative": "Tilting the wing up increases C_L to generate more lift."
+            }
+        }
+    },
+    {
+        "id": "continuity",
+        "category": "Mass Conservation",
+        "title": "Streamline Mass Continuity & Acceleration",
+        "previewTex": "\\rho_1 A_1 v_1 = \\rho_2 A_2 v_2",
+        "texTemplate": "{rho1} {A1} {v1} = {rho2} {A2} {v2}",
+        "activeTerm": "v2",
+        "terms": [
+            { "id": "rho1", "symbol": "\\rho_1", "name": "Inlet Density", "color": "#7e22ce" },
+            { "id": "A1", "symbol": "A_1", "name": "Inlet Area", "color": "#2563eb" },
+            { "id": "v1", "symbol": "v_1", "name": "Inlet Speed", "color": "#ea580c" },
+            { "id": "rho2", "symbol": "\\rho_2", "name": "Outlet Density", "color": "#dc2626" },
+            { "id": "A2", "symbol": "A_2", "name": "Outlet Area", "color": "#0d9488" },
+            { "id": "v2", "symbol": "v_2", "name": "Outlet Speed", "color": "#16a34a" }
+        ],
+        "decoderHTML": "Because mass cannot be created or destroyed, multiplying <a href=\"#continuity/rho1\" class=\"phrase phrase-purple\" data-term=\"rho1\">inlet density</a>, <a href=\"#continuity/A1\" class=\"phrase phrase-blue\" data-term=\"A1\">inlet area</a>, and <a href=\"#continuity/v1\" class=\"phrase phrase-orange\" data-term=\"v1\">inlet speed</a> equals <a href=\"#continuity/rho2\" class=\"phrase phrase-red\" data-term=\"rho2\">outlet density</a>, <a href=\"#continuity/A2\" class=\"phrase phrase-teal\" data-term=\"A2\">outlet area</a>, and <a href=\"#continuity/v2\" class=\"phrase phrase-green phrase-boxed active\" data-term=\"v2\">outlet speed</a>.",
+        "varDetails": {
+            "v2": {
+                "symbol": "v_2",
+                "title": "Outlet Streamline Speed",
+                "desc": "Fluid speed leaving smaller area.",
+                "tag1": "Outlet Speed",
+                "tag2": "m/s",
+                "narrative": "When flow area contracts above a wing, air speed must increase to conserve mass."
+            },
+            "rho1": {
+                "symbol": "\\rho_1",
+                "title": "Inlet Density",
+                "desc": "Upstream mass density.",
+                "tag1": "Density",
+                "tag2": "kg/m³",
+                "narrative": "Density entering flow tube."
+            },
+            "A1": {
+                "symbol": "A_1",
+                "title": "Inlet Area",
+                "desc": "Upstream flow area.",
+                "tag1": "Inlet Area",
+                "tag2": "m²",
+                "narrative": "Larger area before constriction."
+            },
+            "v1": {
+                "symbol": "v_1",
+                "title": "Inlet Speed",
+                "desc": "Upstream flow speed.",
+                "tag1": "Inlet Speed",
+                "tag2": "m/s",
+                "narrative": "Un-constricted flow speed."
+            },
+            "rho2": {
+                "symbol": "\\rho_2",
+                "title": "Outlet Density",
+                "desc": "Downstream mass density.",
+                "tag1": "Density",
+                "tag2": "kg/m³",
+                "narrative": "Equal to inlet density in subsonic flows."
+            },
+            "A2": {
+                "symbol": "A_2",
+                "title": "Outlet Area",
+                "desc": "Downstream constricted area.",
+                "tag1": "Constricted Area",
+                "tag2": "m²",
+                "narrative": "Narrowed channel forcing speedup."
+            }
+        }
+    },
+    {
+        "id": "euler",
+        "category": "Potential Flow",
+        "title": "Euler Friction-Free Fluid Motion",
+        "previewTex": "\\rho \\left( \\frac{\\partial \\mathbf{v}}{\\partial t} + \\mathbf{v} \\cdot \\nabla \\mathbf{v} \\right) = -\\nabla p + \\rho \\mathbf{g}",
+        "texTemplate": "{rho} \\left( \\frac{\\partial {v}}{\\partial t} + {v} \\cdot \\nabla {v} \\right) = -\\nabla {p} + {rho} {g}",
+        "activeTerm": "p",
+        "terms": [
+            { "id": "rho", "symbol": "\\rho", "name": "Density", "color": "#7e22ce" },
+            { "id": "v", "symbol": "\\mathbf{v}", "name": "Velocity", "color": "#ea580c" },
+            { "id": "p", "symbol": "p", "name": "Pressure", "color": "#dc2626" },
+            { "id": "g", "symbol": "\\mathbf{g}", "name": "Gravity", "color": "#16a34a" }
+        ],
+        "decoderHTML": "In friction-free flow, fluid acceleration is driven by <a href=\"#euler/rho\" class=\"phrase phrase-purple\" data-term=\"rho\">fluid density</a> and <a href=\"#euler/v\" class=\"phrase phrase-orange\" data-term=\"v\">fluid velocity</a>, pushed by <a href=\"#euler/p\" class=\"phrase phrase-red phrase-boxed active\" data-term=\"p\">pressure gradients</a> and pulled by <a href=\"#euler/g\" class=\"phrase phrase-green\" data-term=\"g\">gravity</a>.",
+        "varDetails": {
+            "p": {
+                "symbol": "p",
+                "title": "Inviscid Pressure Field",
+                "desc": "Pressure forces in ideal zero-viscosity fluids.",
+                "tag1": "Pressure Force",
+                "tag2": "Pascals [Pa]",
+                "narrative": "Euler equations model fluid motion outside thin friction boundary layers."
+            },
+            "rho": {
+                "symbol": "\\rho",
+                "title": "Fluid Mass Density",
+                "desc": "Mass per unit volume.",
+                "tag1": "Density",
+                "tag2": "kg/m³",
+                "narrative": "Couples pressure gradient forces directly to acceleration."
+            },
+            "v": {
+                "symbol": "\\mathbf{v}",
+                "title": "Flow Velocity Vector",
+                "desc": "Fluid speed and direction.",
+                "tag1": "Velocity Vector",
+                "tag2": "m/s",
+                "narrative": "Flow trajectory vector outside boundary layers."
+            },
+            "g": {
+                "symbol": "\\mathbf{g}",
+                "title": "Gravity Vector",
+                "desc": "Downward gravitational acceleration force.",
+                "tag1": "Gravity Vector",
+                "tag2": "m/s²",
+                "narrative": "Gravitational body force."
+            }
+        }
+    }
+]
