@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +9,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Code+Pro:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Code+Pro:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
 
     <style>
         /* ============================================================
@@ -54,20 +57,20 @@
             line-height: 1.6;
         }
 
-        /* ============================================================
-                   SCROLLBAR
-                   ============================================================ */
         ::-webkit-scrollbar {
             width: 6px;
             height: 6px;
         }
+
         ::-webkit-scrollbar-track {
             background: var(--bg-primary);
         }
+
         ::-webkit-scrollbar-thumb {
             background: var(--gold);
             border-radius: 3px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: var(--gold-light);
         }
@@ -155,6 +158,7 @@
         .museum-nav a:hover {
             color: var(--gold);
         }
+
         .museum-nav a:hover::after {
             width: 100%;
         }
@@ -165,6 +169,7 @@
             transition: opacity var(--transition);
             cursor: default;
         }
+
         .museum-nav .search-icon:hover {
             opacity: 1;
         }
@@ -201,6 +206,18 @@
             color: var(--text-muted);
             letter-spacing: 0.5px;
             font-weight: 300;
+        }
+
+        .section-title .count .interactive-note {
+            display: inline-block;
+            margin-left: 12px;
+            font-size: 11px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--gold);
+            opacity: 0.7;
+            border-left: 1px solid var(--border-gold);
+            padding-left: 12px;
         }
 
         /* ============================================================
@@ -313,7 +330,42 @@
             font-weight: 400;
         }
 
-        /* --- Terms --- */
+        /* ============================================================
+                   CLICKABLE VARIABLES (in equation & terms)
+                   ============================================================ */
+        .var-link {
+            cursor: pointer;
+            position: relative;
+            transition: color 0.25s ease, text-shadow 0.25s ease;
+            text-decoration: none;
+            -webkit-tap-highlight-color: rgba(201, 168, 76, 0.25);
+            user-select: none;
+            -webkit-user-select: none;
+            border-bottom: 1px dotted rgba(201, 168, 76, 0.35);
+            padding-bottom: 1px;
+        }
+
+        .var-link:hover,
+        .var-link:focus-visible {
+            color: #fff;
+            text-shadow: 0 0 12px rgba(201, 168, 76, 0.6);
+            border-bottom-color: var(--gold);
+            outline: none;
+        }
+
+        .var-link:active {
+            color: var(--gold-light);
+            text-shadow: 0 0 20px rgba(201, 168, 76, 0.8);
+            border-bottom-color: var(--gold-light);
+        }
+
+        .var-link:focus-visible {
+            outline: 2px solid rgba(201, 168, 76, 0.5);
+            outline-offset: 3px;
+            border-radius: 2px;
+        }
+
+        /* Terms list — clickable symbol */
         .terms {
             display: flex;
             flex-wrap: wrap;
@@ -337,6 +389,28 @@
             font-weight: 600;
             color: var(--gold);
             font-size: 14px;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.25s ease, text-shadow 0.25s ease;
+            border-bottom: 1px dotted rgba(201, 168, 76, 0.35);
+            padding-bottom: 1px;
+            -webkit-tap-highlight-color: rgba(201, 168, 76, 0.25);
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .term-item .symbol:hover,
+        .term-item .symbol:focus-visible {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(201, 168, 76, 0.5);
+            border-bottom-color: var(--gold);
+            outline: none;
+        }
+
+        .term-item .symbol:focus-visible {
+            outline: 2px solid rgba(201, 168, 76, 0.5);
+            outline-offset: 3px;
+            border-radius: 2px;
         }
 
         .term-item .desc {
@@ -345,7 +419,9 @@
             color: var(--text-muted);
         }
 
-        /* --- Decoder & Insight (hidden by default, shown on hover) --- */
+        /* ============================================================
+                   CARD REVEAL (hover decoder & insight)
+                   ============================================================ */
         .card-reveal {
             max-height: 0;
             opacity: 0;
@@ -357,7 +433,8 @@
             gap: 14px;
         }
 
-        .card:hover .card-reveal {
+        .card:hover .card-reveal,
+        .card:focus-within .card-reveal {
             max-height: 600px;
             opacity: 1;
             margin-top: 12px;
@@ -371,7 +448,8 @@
             transition: background var(--transition);
         }
 
-        .decoder-block .label {
+        .decoder-block .label,
+        .insight-block .label {
             font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 1.8px;
@@ -394,17 +472,6 @@
             padding-top: 14px;
         }
 
-        .insight-block .label {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1.8px;
-            color: var(--gold);
-            font-weight: 600;
-            opacity: 0.7;
-            margin-bottom: 4px;
-            font-family: 'Inter', sans-serif;
-        }
-
         .insight-block .text {
             font-size: 13.5px;
             color: var(--text-secondary);
@@ -419,7 +486,7 @@
             font-weight: 500;
         }
 
-        /* --- Live Value (from the second image) --- */
+        /* --- Live Value --- */
         .live-value {
             margin-top: 16px;
             padding-top: 14px;
@@ -463,6 +530,171 @@
         }
 
         /* ============================================================
+                   TAP HINT (mobile only)
+                   ============================================================ */
+        .tap-hint {
+            display: none;
+        }
+
+        /* ============================================================
+                   VARIABLE MODAL
+                   ============================================================ */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 5, 8, 0.72);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+        }
+
+        .modal-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: var(--radius);
+            max-width: 520px;
+            width: 100%;
+            padding: 32px 30px 28px;
+            position: relative;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6), 0 0 40px var(--gold-glow);
+            transform: translateY(18px) scale(0.97);
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .modal-backdrop.active .modal-card {
+            transform: translateY(0) scale(1);
+        }
+
+        .modal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 24px;
+            cursor: pointer;
+            line-height: 1;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.25s ease;
+            -webkit-tap-highlight-color: rgba(201, 168, 76, 0.2);
+        }
+
+        .modal-close:hover {
+            color: var(--gold);
+            background: rgba(201, 168, 76, 0.1);
+            transform: rotate(90deg);
+        }
+
+        .modal-close:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+            border-radius: 8px;
+        }
+
+        .modal-symbol {
+            font-family: 'Source Code Pro', monospace;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--gold-light);
+            display: block;
+            margin-bottom: 4px;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .modal-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+        }
+
+        .modal-units {
+            display: inline-block;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid var(--border-gold);
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 12px;
+            color: var(--gold);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            font-family: 'Source Code Pro', monospace;
+        }
+
+        .modal-divider {
+            height: 1px;
+            background: rgba(201, 168, 76, 0.1);
+            margin: 16px 0;
+        }
+
+        .modal-section-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: var(--gold);
+            font-weight: 600;
+            opacity: 0.7;
+            margin-bottom: 6px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .modal-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+
+        .modal-role {
+            background: rgba(201, 168, 76, 0.05);
+            border-left: 3px solid var(--gold);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .modal-role strong {
+            color: var(--gold-light);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        /* ============================================================
                    RESPONSIVE
                    ============================================================ */
         @media (max-width: 820px) {
@@ -480,9 +712,18 @@
             .museum-nav {
                 gap: 16px;
             }
+
             .museum-nav a {
                 font-size: 11px;
                 letter-spacing: 1.2px;
+            }
+
+            .section-title .interactive-note {
+                display: block;
+                margin-left: 0;
+                margin-top: 6px;
+                border-left: none;
+                padding-left: 0;
             }
 
             .equation-grid {
@@ -502,8 +743,7 @@
                 max-height: 0;
             }
 
-            /* On mobile, we show a tap-to-reveal behavior via a small helper */
-            .card .tap-hint {
+            .tap-hint {
                 display: block;
                 font-size: 10px;
                 color: var(--text-muted);
@@ -515,14 +755,30 @@
                 transition: opacity var(--transition);
             }
 
-            .card:hover .tap-hint {
+            .card:hover .tap-hint,
+            .card:focus-within .tap-hint {
                 opacity: 0;
             }
 
-            .card:hover .card-reveal {
+            .card:hover .card-reveal,
+            .card:focus-within .card-reveal {
                 max-height: 800px;
                 opacity: 1;
                 margin-top: 12px;
+            }
+
+            .modal-card {
+                padding: 24px 20px 20px;
+                margin: 12px;
+                border-radius: 12px;
+            }
+
+            .modal-symbol {
+                font-size: 2.4rem;
+            }
+
+            .modal-name {
+                font-size: 1.3rem;
             }
         }
 
@@ -566,6 +822,7 @@
                 opacity: 0;
                 transform: translateY(12px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -579,29 +836,44 @@
         .card:nth-child(1) {
             animation-delay: 0.05s;
         }
+
         .card:nth-child(2) {
             animation-delay: 0.10s;
         }
+
         .card:nth-child(3) {
             animation-delay: 0.15s;
         }
+
         .card:nth-child(4) {
             animation-delay: 0.20s;
         }
+
         .card:nth-child(5) {
             animation-delay: 0.25s;
         }
+
         .card:nth-child(6) {
             animation-delay: 0.30s;
         }
+
         .card:nth-child(7) {
             animation-delay: 0.35s;
         }
+
         .card:nth-child(8) {
             animation-delay: 0.40s;
         }
+
+        /* Prevent text selection on rapid taps */
+        .var-link,
+        .term-item .symbol {
+            -webkit-touch-callout: none;
+            touch-action: manipulation;
+        }
     </style>
 </head>
+
 <body>
 
     <!-- ============================================================
@@ -626,7 +898,8 @@
     ============================================================ -->
     <div class="section-title">
         <h2>Governing <em>Equations</em> of Flight</h2>
-        <span class="count">8 exhibits · hover to decode</span>
+        <span class="count">8 exhibits · hover to decode <span class="interactive-note">👆 tap any variable for
+                details</span></span>
     </div>
 
     <!-- ============================================================
@@ -642,38 +915,56 @@
             </div>
             <div class="equation-display">
                 <span class="eq">
-                    ρ(∂<b>v</b>/∂t + <b>v</b>·∇<b>v</b>) = −∇p + μ∇²<b>v</b> + ρ<b>g</b>
+                    <span class="var-link" data-var="rho" role="button" tabindex="0">ρ</span>(∂<b>v</b>/∂t +
+                    <span class="var-link" data-var="v" role="button" tabindex="0"><b>v</b></span>·∇<span
+                        class="var-link" data-var="v" role="button" tabindex="0"><b>v</b></span>) = −∇<span
+                        class="var-link" data-var="p" role="button" tabindex="0">p</span> +
+                    <span class="var-link" data-var="mu" role="button" tabindex="0">μ</span>∇²<span class="var-link"
+                        data-var="v" role="button" tabindex="0"><b>v</b></span> +
+                    <span class="var-link" data-var="rho" role="button" tabindex="0">ρ</span><span class="var-link"
+                        data-var="g" role="button" tabindex="0"><b>g</b></span>
                 </span>
             </div>
             <div class="terms">
-                <span class="term-item"><span class="symbol">ρ</span> <span class="desc">density</span></span>
-                <span class="term-item"><span class="symbol">v</span> <span class="desc">velocity field</span></span>
-                <span class="term-item"><span class="symbol">p</span> <span class="desc">pressure</span></span>
-                <span class="term-item"><span class="symbol">μ</span> <span class="desc">dynamic viscosity</span></span>
-                <span class="term-item"><span class="symbol">g</span> <span class="desc">gravity vector</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="rho" role="button" tabindex="0">ρ</span>
+                    <span class="desc">density</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="v" role="button" tabindex="0">v</span>
+                    <span class="desc">velocity field</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="p" role="button" tabindex="0">p</span>
+                    <span class="desc">pressure</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="mu" role="button" tabindex="0">μ</span>
+                    <span class="desc">dynamic viscosity</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="g" role="button" tabindex="0">g</span>
+                    <span class="desc">gravity vector</span></span>
             </div>
 
             <div class="card-reveal">
                 <div class="decoder-block">
                     <div class="label">📖 Plain English Decoder</div>
                     <div class="text">
-                        The Navier–Stokes equations describe how the velocity of a fluid evolves under the influence of pressure gradients, internal friction (viscosity), and external body forces like gravity. They are the foundation of all continuum fluid mechanics.
+                        The Navier–Stokes equations describe how the velocity of a fluid evolves under the influence of
+                        pressure gradients, internal friction (viscosity), and external body forces like gravity. They
+                        are the foundation of all continuum fluid mechanics.
                     </div>
                 </div>
                 <div class="insight-block">
                     <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
-                        These equations govern every aerodynamic phenomenon — from the thin boundary layer over a wing to the turbulent wake behind a fuselage. Solving them (even approximately) is the central challenge of computational fluid dynamics.
+                        These equations govern every aerodynamic phenomenon — from the thin boundary layer over a wing
+                        to the turbulent wake behind a fuselage. Solving them (even approximately) is the central
+                        challenge of computational fluid dynamics.
                     </div>
                 </div>
             </div>
 
             <div class="live-value">
                 <span>Live Physical Value</span>
-                <div class="meter"><div class="fill"></div></div>
+                <div class="meter">
+                    <div class="fill"></div>
+                </div>
                 <span class="val">—</span>
             </div>
-            <div class="tap-hint">↕ hover to decode</div>
+            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
         <!-- ====== 2. PRANDTL INDUCED DRAG ====== -->
@@ -684,37 +975,52 @@
             </div>
             <div class="equation-display">
                 <span class="eq">
-                    C<sub>D<sub>i</sub></sub> = C<sub>L</sub>² / (π · AR · e)
+                    <span class="var-link" data-var="CDi" role="button" tabindex="0">C<sub>D<sub>i</sub></sub></span> =
+                    <span class="var-link" data-var="CL" role="button" tabindex="0">C<sub>L</sub></span>² / (π ·
+                    <span class="var-link" data-var="AR" role="button" tabindex="0">AR</span> ·
+                    <span class="var-link" data-var="e" role="button" tabindex="0">e</span>)
                 </span>
             </div>
             <div class="terms">
-                <span class="term-item"><span class="symbol">C<sub>D<sub>i</sub></sub></span> <span class="desc">induced drag coeff.</span></span>
-                <span class="term-item"><span class="symbol">C<sub>L</sub></span> <span class="desc">lift coefficient</span></span>
-                <span class="term-item"><span class="symbol">AR</span> <span class="desc">aspect ratio</span></span>
-                <span class="term-item"><span class="symbol">e</span> <span class="desc">span efficiency factor</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="CDi" role="button"
+                        tabindex="0">C<sub>D<sub>i</sub></sub></span> <span class="desc">induced drag
+                        coeff.</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="CL" role="button"
+                        tabindex="0">C<sub>L</sub></span> <span class="desc">lift coefficient</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="AR" role="button" tabindex="0">AR</span>
+                    <span class="desc">aspect ratio</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="e" role="button" tabindex="0">e</span>
+                    <span class="desc">span efficiency factor</span></span>
             </div>
 
             <div class="card-reveal">
                 <div class="decoder-block">
                     <div class="label">📖 Plain English Decoder</div>
                     <div class="text">
-                        The <strong>induced aerodynamic drag penalty</strong> grows with the <em>square</em> of the lift coefficient, constrained by the geometric aspect ratio and the spanwise efficiency factor. Higher lift means more drag — and the penalty is worse for short, stubby wings.
+                        The <strong>induced aerodynamic drag penalty</strong> grows with the <em>square</em> of the lift
+                        coefficient, constrained by the geometric aspect ratio and the spanwise efficiency factor.
+                        Higher lift means more drag — and the penalty is worse for short, stubby wings.
                     </div>
                 </div>
                 <div class="insight-block">
                     <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
-                        The Wright brothers discovered that roll control cannot exist independently of yaw control. Twisting one wing upward increases C<sub>L</sub>, which by this exact equation <strong>multiplies</strong> C<sub>D<sub>i</sub></sub>, pulling the machine into a spin unless the vertical rudder is deflected simultaneously.
+                        The Wright brothers discovered that roll control cannot exist independently of yaw control.
+                        Twisting one wing upward increases C<sub>L</sub>, which by this exact equation
+                        <strong>multiplies</strong> C<sub>D<sub>i</sub></sub>, pulling the machine into a spin unless
+                        the vertical rudder is deflected simultaneously.
                     </div>
                 </div>
             </div>
 
             <div class="live-value">
                 <span>Live Physical Value</span>
-                <div class="meter"><div class="fill" style="width:0%;"></div></div>
+                <div class="meter">
+                    <div class="fill" style="width:0%;"></div>
+                </div>
                 <span class="val">0.00</span>
             </div>
-            <div class="tap-hint">↕ hover to decode</div>
+            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
         <!-- ====== 3. CANARD PITCH EQUILIBRIUM ====== -->
@@ -725,38 +1031,59 @@
             </div>
             <div class="equation-display">
                 <span class="eq">
-                    C<sub>m</sub> = C<sub>m0</sub> + ((x<sub>cg</sub> − x<sub>ac</sub>) / c) · C<sub>L</sub> − V<sub>canard</sub> · C<sub>L,canard</sub>(δ<sub>e</sub>)
+                    <span class="var-link" data-var="Cm" role="button" tabindex="0">C<sub>m</sub></span> =
+                    <span class="var-link" data-var="Cm0" role="button" tabindex="0">C<sub>m0</sub></span> + ((<span
+                        class="var-link" data-var="xcg" role="button" tabindex="0">x<sub>cg</sub></span> − <span
+                        class="var-link" data-var="xac" role="button" tabindex="0">x<sub>ac</sub></span>) /
+                    <span class="var-link" data-var="c" role="button" tabindex="0">c</span>) · <span class="var-link"
+                        data-var="CL" role="button" tabindex="0">C<sub>L</sub></span> −
+                    <span class="var-link" data-var="Vcanard" role="button" tabindex="0">V<sub>canard</sub></span> ·
+                    <span class="var-link" data-var="CLcanard" role="button"
+                        tabindex="0">C<sub>L,canard</sub></span>(<span class="var-link" data-var="delta_e" role="button"
+                        tabindex="0">δ<sub>e</sub></span>)
                 </span>
             </div>
             <div class="terms">
-                <span class="term-item"><span class="symbol">C<sub>m</sub></span> <span class="desc">pitching moment coeff.</span></span>
-                <span class="term-item"><span class="symbol">C<sub>m0</sub></span> <span class="desc">zero‑lift camber moment</span></span>
-                <span class="term-item"><span class="symbol">x<sub>cg</sub>−x<sub>ac</sub></span> <span class="desc">static margin</span></span>
-                <span class="term-item"><span class="symbol">c</span> <span class="desc">mean aerodynamic chord</span></span>
-                <span class="term-item"><span class="symbol">V<sub>canard</sub></span> <span class="desc">canard volume ratio</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="Cm" role="button"
+                        tabindex="0">C<sub>m</sub></span> <span class="desc">pitching moment coeff.</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="Cm0" role="button"
+                        tabindex="0">C<sub>m0</sub></span> <span class="desc">zero‑lift camber moment</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="xcg" role="button"
+                        tabindex="0">x<sub>cg</sub>−x<sub>ac</sub></span> <span class="desc">static margin</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="c" role="button" tabindex="0">c</span>
+                    <span class="desc">mean aerodynamic chord</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="Vcanard" role="button"
+                        tabindex="0">V<sub>canard</sub></span> <span class="desc">canard volume ratio</span></span>
             </div>
 
             <div class="card-reveal">
                 <div class="decoder-block">
                     <div class="label">📖 Plain English Decoder</div>
                     <div class="text">
-                        Net <strong>pitching moment coefficient</strong> balances the zero‑lift wing camber moment, the center‑of‑gravity static margin across the mean aerodynamic chord, total wing lift, and the forward canard elevator control lift scaled by the canard volume ratio.
+                        Net <strong>pitching moment coefficient</strong> balances the zero‑lift wing camber moment, the
+                        center‑of‑gravity static margin across the mean aerodynamic chord, total wing lift, and the
+                        forward canard elevator control lift scaled by the canard volume ratio.
                     </div>
                 </div>
                 <div class="insight-block">
                     <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
-                        The Wrights placed the horizontal elevator in front (a canard) rather than behind the wings. When pulling up to climb, a canard creates <strong>positive upward lift</strong> rather than the downward force produced by a conventional tail. This made the Flyer inherently more stable in pitch.
+                        The Wrights placed the horizontal elevator in front (a canard) rather than behind the wings.
+                        When pulling up to climb, a canard creates <strong>positive upward lift</strong> rather than the
+                        downward force produced by a conventional tail. This made the Flyer inherently more stable in
+                        pitch.
                     </div>
                 </div>
             </div>
 
             <div class="live-value">
                 <span>Live Physical Value</span>
-                <div class="meter"><div class="fill" style="width:0%;"></div></div>
+                <div class="meter">
+                    <div class="fill" style="width:0%;"></div>
+                </div>
                 <span class="val">—</span>
             </div>
-            <div class="tap-hint">↕ hover to decode</div>
+            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
         <!-- ====== 4. BERNOULLI ====== -->
@@ -767,38 +1094,54 @@
             </div>
             <div class="equation-display">
                 <span class="eq">
-                    p + ½ρv² + ρgh = const.
+                    <span class="var-link" data-var="p" role="button" tabindex="0">p</span> + ½<span class="var-link"
+                        data-var="rho" role="button" tabindex="0">ρ</span><span class="var-link" data-var="v"
+                        role="button" tabindex="0">v</span>² +
+                    <span class="var-link" data-var="rho" role="button" tabindex="0">ρ</span><span class="var-link"
+                        data-var="g" role="button" tabindex="0">g</span><span class="var-link" data-var="h"
+                        role="button" tabindex="0">h</span> = const.
                 </span>
             </div>
             <div class="terms">
-                <span class="term-item"><span class="symbol">p</span> <span class="desc">static pressure</span></span>
-                <span class="term-item"><span class="symbol">ρ</span> <span class="desc">density</span></span>
-                <span class="term-item"><span class="symbol">v</span> <span class="desc">flow speed</span></span>
-                <span class="term-item"><span class="symbol">g</span> <span class="desc">gravity</span></span>
-                <span class="term-item"><span class="symbol">h</span> <span class="desc">elevation</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="p" role="button" tabindex="0">p</span>
+                    <span class="desc">static pressure</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="rho" role="button" tabindex="0">ρ</span>
+                    <span class="desc">density</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="v" role="button" tabindex="0">v</span>
+                    <span class="desc">flow speed</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="g" role="button" tabindex="0">g</span>
+                    <span class="desc">gravity</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="h" role="button" tabindex="0">h</span>
+                    <span class="desc">elevation</span></span>
             </div>
 
             <div class="card-reveal">
                 <div class="decoder-block">
                     <div class="label">📖 Plain English Decoder</div>
                     <div class="text">
-                        Along a streamline, the <strong>total mechanical energy</strong> per unit volume of a fluid is conserved. Where speed increases, pressure decreases — and vice versa. This is the fundamental principle behind lift generation.
+                        Along a streamline, the <strong>total mechanical energy</strong> per unit volume of a fluid is
+                        conserved. Where speed increases, pressure decreases — and vice versa. This is the fundamental
+                        principle behind lift generation.
                     </div>
                 </div>
                 <div class="insight-block">
                     <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
-                        The pressure difference between the upper and lower surfaces of a wing is what creates lift. By accelerating air over the curved top surface, Bernoulli tells us the pressure drops — and the wing is <strong>sucked upward</strong> into the region of lower pressure.
+                        The pressure difference between the upper and lower surfaces of a wing is what creates lift. By
+                        accelerating air over the curved top surface, Bernoulli tells us the pressure drops — and the
+                        wing is <strong>sucked upward</strong> into the region of lower pressure.
                     </div>
                 </div>
             </div>
 
             <div class="live-value">
                 <span>Live Physical Value</span>
-                <div class="meter"><div class="fill" style="width:0%;"></div></div>
+                <div class="meter">
+                    <div class="fill" style="width:0%;"></div>
+                </div>
                 <span class="val">—</span>
             </div>
-            <div class="tap-hint">↕ hover to decode</div>
+            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
         <!-- ====== 5. REYNOLDS NUMBER ====== -->
@@ -809,37 +1152,53 @@
             </div>
             <div class="equation-display">
                 <span class="eq">
-                    Re = ρvL / μ
+                    <span class="var-link" data-var="Re" role="button" tabindex="0">Re</span> = <span class="var-link"
+                        data-var="rho" role="button" tabindex="0">ρ</span><span class="var-link" data-var="v"
+                        role="button" tabindex="0">v</span><span class="var-link" data-var="L" role="button"
+                        tabindex="0">L</span> /
+                    <span class="var-link" data-var="mu" role="button" tabindex="0">μ</span>
                 </span>
             </div>
             <div class="terms">
-                <span class="term-item"><span class="symbol">ρ</span> <span class="desc">density</span></span>
-                <span class="term-item"><span class="symbol">v</span> <span class="desc">flow speed</span></span>
-                <span class="term-item"><span class="symbol">L</span> <span class="desc">characteristic length</span></span>
-                <span class="term-item"><span class="symbol">μ</span> <span class="desc">dynamic viscosity</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="Re" role="button" tabindex="0">Re</span>
+                    <span class="desc">Reynolds number</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="rho" role="button" tabindex="0">ρ</span>
+                    <span class="desc">density</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="v" role="button" tabindex="0">v</span>
+                    <span class="desc">flow speed</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="L" role="button" tabindex="0">L</span>
+                    <span class="desc">characteristic length</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="mu" role="button" tabindex="0">μ</span>
+                    <span class="desc">dynamic viscosity</span></span>
             </div>
 
             <div class="card-reveal">
                 <div class="decoder-block">
                     <div class="label">📖 Plain English Decoder</div>
                     <div class="text">
-                        The Reynolds number is the <strong>ratio of inertial forces to viscous forces</strong> in a flow. It tells us whether the flow will be smooth (laminar) or chaotic (turbulent) — a critical predictor for drag and heat transfer.
+                        The Reynolds number is the <strong>ratio of inertial forces to viscous forces</strong> in a
+                        flow. It tells us whether the flow will be smooth (laminar) or chaotic (turbulent) — a critical
+                        predictor for drag and heat transfer.
                     </div>
                 </div>
                 <div class="insight-block">
                     <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
-                        At low Re (creeping flow), viscosity dominates and flow is laminar. At high Re (like full‑scale aircraft), inertia dominates and flow becomes turbulent — which actually <strong>delays separation</strong> and can reduce overall drag on a well‑designed airfoil.
+                        At low Re (creeping flow), viscosity dominates and flow is laminar. At high Re (like full‑scale
+                        aircraft), inertia dominates and flow becomes turbulent — which actually <strong>delays
+                            separation</strong> and can reduce overall drag on a well‑designed airfoil.
                     </div>
                 </div>
             </div>
 
             <div class="live-value">
                 <span>Live Physical Value</span>
-                <div class="meter"><div class="fill" style="width:0%;"></div></div>
+                <div class="meter">
+                    <div class="fill" style="width:0%;"></div>
+                </div>
                 <span class="val">—</span>
             </div>
-            <div class="tap-hint">↕ hover to decode</div>
+            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
         <!-- ====== 6. LIFT EQUATION ====== -->
@@ -850,38 +1209,54 @@
             </div>
             <div class="equation-display">
                 <span class="eq">
-                    L = ½ρv² · S · C<sub>L</sub>
+                    <span class="var-link" data-var="L" role="button" tabindex="0">L</span> = ½<span class="var-link"
+                        data-var="rho" role="button" tabindex="0">ρ</span><span class="var-link" data-var="v"
+                        role="button" tabindex="0">v</span>² ·
+                    <span class="var-link" data-var="S" role="button" tabindex="0">S</span> · <span class="var-link"
+                        data-var="CL" role="button" tabindex="0">C<sub>L</sub></span>
                 </span>
             </div>
             <div class="terms">
-                <span class="term-item"><span class="symbol">L</span> <span class="desc">lift force</span></span>
-                <span class="term-item"><span class="symbol">ρ</span> <span class="desc">air density</span></span>
-                <span class="term-item"><span class="symbol">v</span> <span class="desc">airspeed</span></span>
-                <span class="term-item"><span class="symbol">S</span> <span class="desc">wing planform area</span></span>
-                <span class="term-item"><span class="symbol">C<sub>L</sub></span> <span class="desc">lift coefficient</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="L" role="button" tabindex="0">L</span>
+                    <span class="desc">lift force</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="rho" role="button" tabindex="0">ρ</span>
+                    <span class="desc">air density</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="v" role="button" tabindex="0">v</span>
+                    <span class="desc">airspeed</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="S" role="button" tabindex="0">S</span>
+                    <span class="desc">wing planform area</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="CL" role="button"
+                        tabindex="0">C<sub>L</sub></span> <span class="desc">lift coefficient</span></span>
             </div>
 
             <div class="card-reveal">
                 <div class="decoder-block">
                     <div class="label">📖 Plain English Decoder</div>
                     <div class="text">
-                        Lift is proportional to the <strong>dynamic pressure</strong> (½ρv²), the wing area, and the lift coefficient. To get more lift, you can fly faster, increase wing area, or increase the angle of attack — but each comes with trade‑offs in drag and structural load.
+                        Lift is proportional to the <strong>dynamic pressure</strong> (½ρv²), the wing area, and the
+                        lift coefficient. To get more lift, you can fly faster, increase wing area, or increase the
+                        angle of attack — but each comes with trade‑offs in drag and structural load.
                     </div>
                 </div>
                 <div class="insight-block">
                     <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
-                        This simple equation is the <strong>starting point for every aircraft design</strong>. For a given weight, the required C<sub>L</sub> determines the wing loading and angle of attack. The Wright Flyer's low speed meant it needed a <strong>large wing area</strong> and a high‑lift airfoil to get airborne.
+                        This simple equation is the <strong>starting point for every aircraft design</strong>. For a
+                        given weight, the required C<sub>L</sub> determines the wing loading and angle of attack. The
+                        Wright Flyer's low speed meant it needed a <strong>large wing area</strong> and a high‑lift
+                        airfoil to get airborne.
                     </div>
                 </div>
             </div>
 
             <div class="live-value">
                 <span>Live Physical Value</span>
-                <div class="meter"><div class="fill" style="width:0%;"></div></div>
+                <div class="meter">
+                    <div class="fill" style="width:0%;"></div>
+                </div>
                 <span class="val">—</span>
             </div>
-            <div class="tap-hint">↕ hover to decode</div>
+            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
         <!-- ====== 7. CONTINUITY ====== -->
@@ -892,36 +1267,50 @@
             </div>
             <div class="equation-display">
                 <span class="eq">
-                    ρ₁A₁v₁ = ρ₂A₂v₂
+                    <span class="var-link" data-var="rho1" role="button" tabindex="0">ρ<sub>1</sub></span><span
+                        class="var-link" data-var="A1" role="button" tabindex="0">A<sub>1</sub></span><span
+                        class="var-link" data-var="v1" role="button" tabindex="0">v<sub>1</sub></span> =
+                    <span class="var-link" data-var="rho2" role="button" tabindex="0">ρ<sub>2</sub></span><span
+                        class="var-link" data-var="A2" role="button" tabindex="0">A<sub>2</sub></span><span
+                        class="var-link" data-var="v2" role="button" tabindex="0">v<sub>2</sub></span>
                 </span>
             </div>
             <div class="terms">
-                <span class="term-item"><span class="symbol">ρ</span> <span class="desc">density</span></span>
-                <span class="term-item"><span class="symbol">A</span> <span class="desc">cross‑sectional area</span></span>
-                <span class="term-item"><span class="symbol">v</span> <span class="desc">flow speed</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="rho" role="button" tabindex="0">ρ</span>
+                    <span class="desc">density</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="A" role="button" tabindex="0">A</span>
+                    <span class="desc">cross‑sectional area</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="v" role="button" tabindex="0">v</span>
+                    <span class="desc">flow speed</span></span>
             </div>
 
             <div class="card-reveal">
                 <div class="decoder-block">
                     <div class="label">📖 Plain English Decoder</div>
                     <div class="text">
-                        For a steady flow, the <strong>mass flow rate</strong> is conserved: what goes in must come out. If the flow area decreases, the speed must increase (and vice versa) — provided density is constant.
+                        For a steady flow, the <strong>mass flow rate</strong> is conserved: what goes in must come out.
+                        If the flow area decreases, the speed must increase (and vice versa) — provided density is
+                        constant.
                     </div>
                 </div>
                 <div class="insight-block">
                     <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
-                        This is why air accelerates over the top of a wing (area constriction) and why a <strong>venturi tube</strong> can be used to measure flow speed. In supersonic flow, the density changes too — which is why the <strong>area rule</strong> becomes critical for high‑speed aircraft.
+                        This is why air accelerates over the top of a wing (area constriction) and why a <strong>venturi
+                            tube</strong> can be used to measure flow speed. In supersonic flow, the density changes too
+                        — which is why the <strong>area rule</strong> becomes critical for high‑speed aircraft.
                     </div>
                 </div>
             </div>
 
             <div class="live-value">
                 <span>Live Physical Value</span>
-                <div class="meter"><div class="fill" style="width:0%;"></div></div>
+                <div class="meter">
+                    <div class="fill" style="width:0%;"></div>
+                </div>
                 <span class="val">—</span>
             </div>
-            <div class="tap-hint">↕ hover to decode</div>
+            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
         <!-- ====== 8. EULER EQUATIONS ====== -->
@@ -932,37 +1321,57 @@
             </div>
             <div class="equation-display">
                 <span class="eq">
-                    ρ(∂<b>v</b>/∂t + <b>v</b>·∇<b>v</b>) = −∇p + ρ<b>g</b>
+                    <span class="var-link" data-var="rho" role="button" tabindex="0">ρ</span>(∂<b>v</b>/∂<span
+                        class="var-link" data-var="t" role="button" tabindex="0">t</span> +
+                    <span class="var-link" data-var="v" role="button" tabindex="0"><b>v</b></span>·∇<span
+                        class="var-link" data-var="v" role="button" tabindex="0"><b>v</b></span>) = −∇<span
+                        class="var-link" data-var="p" role="button" tabindex="0">p</span> +
+                    <span class="var-link" data-var="rho" role="button" tabindex="0">ρ</span><span class="var-link"
+                        data-var="g" role="button" tabindex="0"><b>g</b></span>
                 </span>
             </div>
             <div class="terms">
-                <span class="term-item"><span class="symbol">ρ</span> <span class="desc">density</span></span>
-                <span class="term-item"><span class="symbol">v</span> <span class="desc">velocity field</span></span>
-                <span class="term-item"><span class="symbol">p</span> <span class="desc">pressure</span></span>
-                <span class="term-item"><span class="symbol">g</span> <span class="desc">gravity</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="rho" role="button" tabindex="0">ρ</span>
+                    <span class="desc">density</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="v" role="button" tabindex="0">v</span>
+                    <span class="desc">velocity field</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="t" role="button" tabindex="0">t</span>
+                    <span class="desc">time</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="p" role="button" tabindex="0">p</span>
+                    <span class="desc">pressure</span></span>
+                <span class="term-item"><span class="symbol var-link" data-var="g" role="button" tabindex="0">g</span>
+                    <span class="desc">gravity</span></span>
             </div>
 
             <div class="card-reveal">
                 <div class="decoder-block">
                     <div class="label">📖 Plain English Decoder</div>
                     <div class="text">
-                        The Euler equations are the <strong>inviscid (friction‑free)</strong> limit of the Navier–Stokes equations. They describe how an ideal fluid moves under pressure and gravity, but with <em>no viscosity</em> — a good approximation for high‑Reynolds number flows away from solid boundaries.
+                        The Euler equations are the <strong>inviscid (friction‑free)</strong> limit of the Navier–Stokes
+                        equations. They describe how an ideal fluid moves under pressure and gravity, but with <em>no
+                            viscosity</em> — a good approximation for high‑Reynolds number flows away from solid
+                        boundaries.
                     </div>
                 </div>
                 <div class="insight-block">
                     <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
-                        These equations form the basis of <strong>potential flow theory</strong> and are used to compute lift distributions on wings using panel methods. They also explain why a <strong>turning vane</strong> or a curved surface can generate a pressure difference — the foundation of airfoil design.
+                        These equations form the basis of <strong>potential flow theory</strong> and are used to compute
+                        lift distributions on wings using panel methods. They also explain why a <strong>turning
+                            vane</strong> or a curved surface can generate a pressure difference — the foundation of
+                        airfoil design.
                     </div>
                 </div>
             </div>
 
             <div class="live-value">
                 <span>Live Physical Value</span>
-                <div class="meter"><div class="fill" style="width:0%;"></div></div>
+                <div class="meter">
+                    <div class="fill" style="width:0%;"></div>
+                </div>
                 <span class="val">—</span>
             </div>
-            <div class="tap-hint">↕ hover to decode</div>
+            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
     </div>
@@ -972,19 +1381,379 @@
     ============================================================ -->
     <footer class="museum-footer">
         <span>Classic Patents Historical Technical Museum · <span class="gold">Aerodynamics Archive</span></span>
-        <span>v1.0 · 8 governing equations</span>
+        <span>v2.0 · 8 governing equations · 27 interactive variables</span>
     </footer>
 
     <!-- ============================================================
-    JAVASCRIPT — live value animation on load
+    VARIABLE MODAL
+    ============================================================ -->
+    <div class="modal-backdrop" id="varModal" role="dialog" aria-modal="true" aria-labelledby="modalVarName">
+        <div class="modal-card">
+            <button class="modal-close" id="modalClose" aria-label="Close variable details">✕</button>
+            <span class="modal-symbol" id="modalSymbol">ρ</span>
+            <div class="modal-name" id="modalName">Density</div>
+            <span class="modal-units" id="modalUnits">kg/m³</span>
+            <div class="modal-divider"></div>
+            <div class="modal-section-label">📖 Description</div>
+            <div class="modal-description" id="modalDescription"></div>
+            <div class="modal-section-label">⚡ Role in Equation</div>
+            <div class="modal-role" id="modalRole"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    JAVASCRIPT — variable data, modal, and live value animation
     ============================================================ -->
     <script>
-        (function() {
-            // Animate all meter fills on load with a staggered delay
+        (function () {
+            // ============================================================
+            // VARIABLE DATABASE
+            // ============================================================
+            const variableData = {
+                // --- Fluid Properties ---
+                rho: {
+                    symbol: 'ρ',
+                    name: 'Density',
+                    units: 'kg/m³',
+                    description: 'Density is the mass per unit volume of a fluid. For air at sea level and 15°C, it is approximately 1.225 kg/m³. Density decreases with altitude, which is why aircraft wings generate less lift at high altitudes and require higher airspeeds or larger angles of attack.',
+                    role: 'In the aerodynamic equations, density links mass to volume and determines the amount of mass flowing through a given area. It appears in the dynamic pressure term ½ρv², the Reynolds number, and the continuity equation — making it a fundamental bridge between kinematics and forces.'
+                },
+                rho1: {
+                    symbol: 'ρ₁',
+                    name: 'Upstream Density',
+                    units: 'kg/m³',
+                    description: 'The density of the fluid at the inlet or upstream cross-section (station 1) in the continuity equation. For incompressible flow (Mach < 0.3), ρ₁ equals ρ₂ and the density terms cancel out.',
+                    role: 'Represents the mass concentration entering the control volume. In the continuity equation, ρ₁A₁v₁ = ρ₂A₂v₂, it ensures mass conservation across any two stations along a streamline or duct.'
+                },
+                rho2: {
+                    symbol: 'ρ₂',
+                    name: 'Downstream Density',
+                    units: 'kg/m³',
+                    description: 'The density of the fluid at the outlet or downstream cross-section (station 2). In compressible flows (high speed or large pressure changes), ρ₂ differs from ρ₁ and must be accounted for.',
+                    role: 'Represents the mass concentration leaving the control volume. When density changes, the continuity equation couples velocity and area to the thermodynamic state of the gas.'
+                },
+
+                // --- Velocity & Flow ---
+                v: {
+                    symbol: 'v',
+                    name: 'Velocity',
+                    units: 'm/s',
+                    description: 'Velocity is the speed and direction of a fluid element or aircraft relative to the air. It is a vector quantity in the Navier–Stokes and Euler equations, meaning it has both magnitude and direction. In aerodynamics, velocity appears squared in dynamic pressure terms, making it the dominant factor in lift and drag generation.',
+                    role: 'Velocity appears in nearly every aerodynamic equation — in the convective acceleration term v·∇v, in the dynamic pressure ½ρv², in the Reynolds number ρvL/μ, and in the continuity equation ρAv. Doubling the velocity quadruples the dynamic pressure and thus the lift and drag forces.'
+                },
+                v1: {
+                    symbol: 'v₁',
+                    name: 'Upstream Velocity',
+                    units: 'm/s',
+                    description: 'The flow speed at the upstream cross-section (station 1). In a converging duct or over the leading portion of a wing, v₁ is typically the freestream velocity.',
+                    role: 'In the continuity equation, v₁ is the inlet speed. When the area decreases downstream, v₂ increases proportionally to maintain constant mass flow rate.'
+                },
+                v2: {
+                    symbol: 'v₂',
+                    name: 'Downstream Velocity',
+                    units: 'm/s',
+                    description: 'The flow speed at the downstream cross-section (station 2). In a nozzle or constriction, v₂ exceeds v₁; in a diffuser, v₂ is lower than v₁.',
+                    role: 'In the continuity equation, v₂ is the outlet speed. It is inversely proportional to the downstream area for incompressible flow — a smaller area forces higher speed.'
+                },
+
+                // --- Pressure & Forces ---
+                p: {
+                    symbol: 'p',
+                    name: 'Static Pressure',
+                    units: 'Pa (N/m²)',
+                    description: 'Static pressure is the force per unit area exerted by a fluid on a surface in all directions. It is the pressure you feel when stationary relative to the fluid. In aerodynamics, the pressure distribution over a wing surface determines the lift and drag forces. Atmospheric pressure at sea level is 101,325 Pa.',
+                    role: 'Pressure appears in the Navier–Stokes and Euler equations as the gradient ∇p, which drives fluid acceleration. In Bernoulli\'s equation, static pressure trades off with dynamic pressure — as speed increases, static pressure decreases, creating the suction that generates lift.'
+                },
+
+                // --- Viscosity & Fluid Properties ---
+                mu: {
+                    symbol: 'μ',
+                    name: 'Dynamic Viscosity',
+                    units: 'Pa·s (kg/m·s)',
+                    description: 'Dynamic viscosity is a measure of a fluid\'s internal resistance to deformation or flow. It quantifies the "thickness" or "stickiness" of a fluid. For air at 15°C, μ ≈ 1.81 × 10⁻⁵ Pa·s. Honey has a viscosity thousands of times higher than air.',
+                    role: 'Viscosity is the source of friction in the Navier–Stokes equations through the term μ∇²v. It is also the denominator of the Reynolds number — when μ is small (as for air), inertial forces dominate and the flow tends toward turbulence.'
+                },
+
+                // --- Gravity ---
+                g: {
+                    symbol: 'g',
+                    name: 'Gravitational Acceleration',
+                    units: 'm/s²',
+                    description: 'Gravitational acceleration is the acceleration due to Earth\'s gravity, approximately 9.81 m/s² at sea level. In the Navier–Stokes and Euler equations, it appears as a body force vector ρg acting downward on every fluid element.',
+                    role: 'Gravity is the restoring force that creates hydrostatic pressure gradients in fluids. In the Bernoulli equation, the term ρgh accounts for gravitational potential energy. For most low-speed aerodynamic problems, gravitational effects are negligible compared to pressure and inertia.'
+                },
+
+                // --- Geometric Parameters ---
+                h: {
+                    symbol: 'h',
+                    name: 'Elevation / Height',
+                    units: 'm',
+                    description: 'Height or elevation is the vertical position of a fluid element above a reference datum. In the Bernoulli equation, the term ρgh represents gravitational potential energy per unit volume. For most aircraft aerodynamic problems, the height difference across a wing is minuscule and this term can be neglected.',
+                    role: 'In Bernoulli\'s equation, h accounts for the gravitational potential energy of the fluid. The term ρgh is usually negligible for aerodynamic applications but essential for hydrostatics and pipe flow problems.'
+                },
+                L: {
+                    symbol: 'L',
+                    name: 'Characteristic Length',
+                    units: 'm',
+                    description: 'The characteristic length is a representative dimension of the body or flow geometry. For a wing, it is typically the chord length; for a pipe, the diameter; for a flat plate, the distance from the leading edge. It sets the scale of the flow and determines the Reynolds number.',
+                    role: 'In the Reynolds number Re = ρvL/μ, the characteristic length establishes the length scale over which inertial and viscous forces are compared. A larger L (e.g., a larger wing chord) at the same velocity produces a higher Reynolds number.'
+                },
+                S: {
+                    symbol: 'S',
+                    name: 'Wing Planform Area',
+                    units: 'm²',
+                    description: 'The wing planform area is the projected area of the wing when viewed from above (or below). It is the reference area used in the definitions of the lift coefficient C_L, drag coefficient C_D, and all aerodynamic force coefficients. For the Wright Flyer, S was approximately 47.4 m².',
+                    role: 'In the lift equation L = ½ρv²·S·C_L, the wing area is the primary geometric scaling factor. A larger wing area generates proportionally more lift at a given speed and angle of attack, which is why gliders and low-speed aircraft have large wings.'
+                },
+                A: {
+                    symbol: 'A',
+                    name: 'Cross-Sectional Area',
+                    units: 'm²',
+                    description: 'Cross-sectional area is the area perpendicular to the flow direction at a given station. In a duct, nozzle, or wind tunnel, the cross-sectional area determines the flow speed through the continuity equation. For incompressible flow, a smaller area means faster flow.',
+                    role: 'In the continuity equation ρ₁A₁v₁ = ρ₂A₂v₂, the area is the geometric constraint that forces the velocity to change. This principle is used in wind tunnel contractions to create uniform high-speed test sections.'
+                },
+                A1: {
+                    symbol: 'A₁',
+                    name: 'Upstream Area',
+                    units: 'm²',
+                    description: 'The cross-sectional area at the upstream (inlet) station of a duct or flow path. In a converging section, A₁ is larger than A₂, causing the flow to accelerate.',
+                    role: 'In the continuity equation, the upstream area sets the baseline flow speed. The ratio A₁/A₂ determines the velocity ratio v₂/v₁ for incompressible flow.'
+                },
+                A2: {
+                    symbol: 'A₂',
+                    name: 'Downstream Area',
+                    units: 'm²',
+                    description: 'The cross-sectional area at the downstream (outlet) station. In a converging section, A₂ is smaller than A₁, causing the flow to accelerate; in a diffuser, A₂ is larger, causing deceleration.',
+                    role: 'In the continuity equation, the downstream area determines the outlet velocity. The area ratio is the primary design parameter for nozzles, diffusers, and wind tunnel contractions.'
+                },
+
+                // --- Aerodynamic Coefficients ---
+                CL: {
+                    symbol: 'C_L',
+                    name: 'Lift Coefficient',
+                    units: 'dimensionless',
+                    description: 'The lift coefficient is a dimensionless number that quantifies the lifting effectiveness of an airfoil or wing. It depends on the angle of attack, airfoil shape, and Reynolds number. Typical values range from 0.3 to 1.5 for subsonic flight. The Wright Flyer\'s C_L was around 0.5.',
+                    role: 'C_L is the bridge between geometry/angle of attack and the actual lift force. In the lift equation L = ½ρv²·S·C_L, it encapsulates all the complex flow physics into a single number. It also drives induced drag through C_Di = C_L²/(π·AR·e).'
+                },
+                CDi: {
+                    symbol: 'C_Di',
+                    name: 'Induced Drag Coefficient',
+                    units: 'dimensionless',
+                    description: 'The induced drag coefficient quantifies the drag penalty caused by generating lift. It arises from the downwash behind a finite wing and the trailing vortex system. Induced drag increases with the square of the lift coefficient and decreases with higher aspect ratio.',
+                    role: 'In the Prandtl induced drag equation C_Di = C_L²/(π·AR·e), it represents the unavoidable drag cost of lift generation. This is the reason high-aspect-ratio wings (like those on gliders) are more efficient than short, stubby wings.'
+                },
+                CLcanard: {
+                    symbol: 'C_L,canard',
+                    name: 'Canard Lift Coefficient',
+                    units: 'dimensionless',
+                    description: 'The lift coefficient of the canard (forward elevator) surface. It is controlled by the elevator deflection angle δ_e. The canard provides pitch control by generating lift ahead of the center of gravity, creating a pitching moment.',
+                    role: 'In the canard pitch equilibrium equation, C_L,canard is the control input that the pilot adjusts via the elevator. Its lift contribution is scaled by the canard volume ratio V_canard to produce the control pitching moment.'
+                },
+
+                // --- Pitching Moment Parameters ---
+                Cm: {
+                    symbol: 'C_m',
+                    name: 'Pitching Moment Coefficient',
+                    units: 'dimensionless',
+                    description: 'The pitching moment coefficient quantifies the rotational tendency of an aircraft about its lateral axis (nose up/down). A positive C_m indicates a nose-up moment. For stable flight, the aircraft must achieve C_m = 0 at the desired trim condition.',
+                    role: 'C_m is the net result of all pitching moments acting on the aircraft — from the wing camber, the center-of-gravity location, the wing lift, and the canard control surface. Setting C_m = 0 defines the trim angle of attack.'
+                },
+                Cm0: {
+                    symbol: 'C_m0',
+                    name: 'Zero-Lift Pitching Moment',
+                    units: 'dimensionless',
+                    description: 'The pitching moment coefficient at zero lift. It arises from the wing camber and the airfoil\'s inherent asymmetry. A positively cambered wing typically produces a nose-down moment (negative C_m0) that must be trimmed out.',
+                    role: 'C_m0 is the baseline pitching moment that exists even when no lift is being generated. It is a key parameter in longitudinal stability analysis and determines the required trim control force.'
+                },
+
+                // --- Geometry & Configuration ---
+                xcg: {
+                    symbol: 'x_cg',
+                    name: 'Center of Gravity Location',
+                    units: 'm (or % chord)',
+                    description: 'The center of gravity (CG) is the point where the aircraft\'s weight acts. Its position relative to the aerodynamic center determines the static longitudinal stability. A CG ahead of the aerodynamic center provides positive static stability (the aircraft tends to return to trim after a disturbance).',
+                    role: 'In the pitching moment equation, x_cg appears in the static margin term (x_cg − x_ac)/c. The CG location is a critical design parameter that must be carefully managed for stable flight.'
+                },
+                xac: {
+                    symbol: 'x_ac',
+                    name: 'Aerodynamic Center',
+                    units: 'm (or % chord)',
+                    description: 'The aerodynamic center is the point on a wing or airfoil about which the pitching moment is independent of the angle of attack. For subsonic airfoils, it is typically at about 25% of the chord. The aerodynamic center is a fixed reference point for stability analysis.',
+                    role: 'In the pitching moment equation, x_ac is the reference point for the wing\'s lift. The distance between x_cg and x_ac (the static margin) determines how the aircraft responds to angle-of-attack changes.'
+                },
+                c: {
+                    symbol: 'c',
+                    name: 'Mean Aerodynamic Chord',
+                    units: 'm',
+                    description: 'The mean aerodynamic chord (MAC) is the average chord length of a wing, used as a reference length for pitching moment calculations. For a rectangular wing, it is simply the chord length. The MAC provides a common reference frame for CG position and stability margins.',
+                    role: 'In the pitching moment equation, the MAC normalizes the static margin (x_cg − x_ac)/c, making the moment coefficient dimensionless and applicable across different aircraft scales.'
+                },
+                Vcanard: {
+                    symbol: 'V_canard',
+                    name: 'Canard Volume Ratio',
+                    units: 'dimensionless',
+                    description: 'The canard volume ratio is a measure of the canard\'s aerodynamic effectiveness relative to the main wing. It is defined as the product of the canard area and its moment arm divided by the wing area and MAC. A larger canard volume ratio means the canard has more pitch authority.',
+                    role: 'In the pitching moment equation, V_canard scales the canard lift coefficient to determine its contribution to the total pitching moment. It is the "leverage" the canard has in controlling pitch.'
+                },
+
+                // --- Control Parameters ---
+                delta_e: {
+                    symbol: 'δ_e',
+                    name: 'Elevator Deflection Angle',
+                    units: 'radians or degrees',
+                    description: 'The elevator deflection angle is the angular displacement of the elevator (or canard) control surface from its neutral position. Positive deflection (trailing edge up) reduces lift; negative deflection (trailing edge down) increases lift. The pilot adjusts δ_e to control pitch.',
+                    role: 'In the canard pitch equilibrium equation, δ_e is the primary control input. It directly changes the canard lift coefficient C_L,canard, which in turn alters the pitching moment and allows the pilot to trim the aircraft at any desired angle of attack.'
+                },
+
+                // --- Key Dimensionless Numbers ---
+                Re: {
+                    symbol: 'Re',
+                    name: 'Reynolds Number',
+                    units: 'dimensionless',
+                    description: 'The Reynolds number is the ratio of inertial forces to viscous forces in a fluid flow. It is the single most important dimensionless parameter in aerodynamics, determining whether the flow is laminar or turbulent. For a full-scale aircraft wing, Re can be 10⁶ to 10⁸.',
+                    role: 'In the equation Re = ρvL/μ, it characterizes the flow regime. Low Re (< 2000 for pipe flow) means laminar flow; high Re means turbulent flow. The Reynolds number also controls boundary layer thickness, skin friction drag, and the onset of flow separation.'
+                },
+
+                // --- Wing Efficiency ---
+                AR: {
+                    symbol: 'AR',
+                    name: 'Aspect Ratio',
+                    units: 'dimensionless',
+                    description: 'Aspect ratio is the ratio of the wing span squared to the wing area (or span divided by average chord). A high aspect ratio wing (long and slender) is more efficient because it reduces induced drag. Gliders have AR of 20–30; fighter jets have AR of 2–4.',
+                    role: 'In the induced drag equation C_Di = C_L²/(π·AR·e), the aspect ratio appears in the denominator — a higher AR directly reduces induced drag. This is why efficient aircraft have long, slender wings.'
+                },
+                e: {
+                    symbol: 'e',
+                    name: 'Span Efficiency Factor',
+                    units: 'dimensionless',
+                    description: 'The span efficiency factor (or Oswald efficiency factor) accounts for the deviation of a real wing from the ideal elliptical lift distribution. For a perfectly elliptical wing, e = 1.0. Real wings have e values between 0.7 and 0.95, depending on planform shape.',
+                    role: 'In the induced drag equation, e appears in the denominator and quantifies the efficiency of the lift distribution. A lower e means more induced drag for the same C_L and AR. The elliptical wing (like the Spitfire) achieves e ≈ 1.0.'
+                },
+
+                // --- Forces & Time ---
+                L_force: {
+                    symbol: 'L',
+                    name: 'Lift Force',
+                    units: 'N (Newtons)',
+                    description: 'Lift is the aerodynamic force perpendicular to the direction of motion. It is generated by pressure differences between the upper and lower wing surfaces. For level flight, lift equals the aircraft weight. The Wright Flyer generated approximately 2,700 N of lift at 48 km/h.',
+                    role: 'In the lift equation L = ½ρv²·S·C_L, lift is the output — the force that keeps the aircraft airborne. It depends on dynamic pressure, wing area, and lift coefficient. Every aircraft design starts with this equation to determine the required wing size.'
+                },
+                t: {
+                    symbol: 't',
+                    name: 'Time',
+                    units: 's',
+                    description: 'Time appears in the unsteady terms of the Navier–Stokes and Euler equations (∂v/∂t), representing the temporal evolution of the flow. In steady flight, these terms vanish, but in unsteady aerodynamics (gusts, flutter, maneuvers), they are critical.',
+                    role: 'The time derivative ∂v/∂t accounts for acceleration of the fluid at a fixed point. It is essential for analyzing unsteady phenomena such as turbulence, vortex shedding, and dynamic stall.'
+                },
+            };
+
+            // ============================================================
+            // MODAL FUNCTIONALITY
+            // ============================================================
+            const modalBackdrop = document.getElementById('varModal');
+            const modalSymbol = document.getElementById('modalSymbol');
+            const modalName = document.getElementById('modalName');
+            const modalUnits = document.getElementById('modalUnits');
+            const modalDescription = document.getElementById('modalDescription');
+            const modalRole = document.getElementById('modalRole');
+            const modalCloseBtn = document.getElementById('modalClose');
+
+            let lastFocusedElement = null;
+            let isModalOpen = false;
+
+            function openModal(varKey) {
+                const data = variableData[varKey];
+                if (!data) return;
+
+                lastFocusedElement = document.activeElement;
+                modalSymbol.textContent = data.symbol;
+                modalName.textContent = data.name;
+                modalUnits.textContent = data.units;
+                modalDescription.textContent = data.description;
+                modalRole.innerHTML = data.role;
+
+                modalBackdrop.classList.add('active');
+                isModalOpen = true;
+                document.body.style.overflow = 'hidden';
+
+                // Focus the close button for keyboard users
+                setTimeout(() => {
+                    modalCloseBtn.focus();
+                }, 100);
+            }
+
+            function closeModal() {
+                modalBackdrop.classList.remove('active');
+                isModalOpen = false;
+                document.body.style.overflow = '';
+
+                // Restore focus
+                if (lastFocusedElement) {
+                    lastFocusedElement.focus();
+                    lastFocusedElement = null;
+                }
+            }
+
+            // Event delegation for all .var-link elements
+            document.addEventListener('click', function (e) {
+                const varLink = e.target.closest('.var-link');
+                if (varLink) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const varKey = varLink.getAttribute('data-var');
+                    openModal(varKey);
+                    return;
+                }
+
+                // Close modal if clicking backdrop
+                if (e.target === modalBackdrop) {
+                    closeModal();
+                    return;
+                }
+            });
+
+            // Keyboard support for .var-link elements
+            document.addEventListener('keydown', function (e) {
+                if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('var-link')) {
+                    e.preventDefault();
+                    const varKey = e.target.getAttribute('data-var');
+                    openModal(varKey);
+                    return;
+                }
+
+                if (e.key === 'Escape' && isModalOpen) {
+                    closeModal();
+                    return;
+                }
+
+                // Trap focus within modal
+                if (isModalOpen && e.key === 'Tab') {
+                    const focusableElements = modalBackdrop.querySelectorAll('button, [tabindex]:not([tabindex="-1"])');
+                    if (focusableElements.length === 0) return;
+                    const firstEl = focusableElements[0];
+                    const lastEl = focusableElements[focusableElements.length - 1];
+                    if (e.shiftKey && document.activeElement === firstEl) {
+                        e.preventDefault();
+                        lastEl.focus();
+                    } else if (!e.shiftKey && document.activeElement === lastEl) {
+                        e.preventDefault();
+                        firstEl.focus();
+                    }
+                }
+            });
+
+            // Close button
+            modalCloseBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                closeModal();
+            });
+
+            // ============================================================
+            // LIVE VALUE ANIMATION ON LOAD
+            // ============================================================
             const fills = document.querySelectorAll('.live-value .meter .fill');
             const vals = document.querySelectorAll('.live-value .val');
 
-            // Generate a pseudo-random "live" value for each card
             const cardValues = [0.78, 0.42, 0.61, 0.55, 0.89, 0.73, 0.38, 0.66];
 
             fills.forEach((fill, idx) => {
@@ -993,17 +1762,36 @@
                 if (valEl) {
                     valEl.textContent = target.toFixed(2);
                 }
-                // set the width after a short delay so the transition is visible
                 setTimeout(() => {
                     fill.style.width = (target * 100) + '%';
                 }, 400 + idx * 80);
             });
 
-            // For cards that don't have a specific value, use the hover state
-            // but we already have them set via CSS hover.
-            // Also ensure that the meter fill transitions smoothly on hover.
+            // ============================================================
+            // TOUCH SUPPORT — ensure tap works on mobile without 
+            // interfering with hover reveal
+            // ============================================================
+            // On touch devices, the first tap on a .var-link should open
+            // the modal instead of triggering the card hover. We use a
+            // touchstart listener to prevent the hover behavior.
+            document.querySelectorAll('.var-link').forEach(el => {
+                el.addEventListener('touchstart', function (e) {
+                    // Don't prevent default here — just mark it
+                    e.stopPropagation();
+                    // The click event will fire and open the modal
+                }, { passive: true });
+            });
+
+            // ============================================================
+            // SUPPORT FOR CARD FOCUS-WITHIN (keyboard hover)
+            // ============================================================
+            // Already handled via CSS :focus-within on .card
+
+            console.log('✈️ Aerodynamics Museum · Interactive Variable Decoder loaded');
+            console.log('👆 Click or tap any variable symbol in the equations to learn more');
         })();
     </script>
 
 </body>
+
 </html>
