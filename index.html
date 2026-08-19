@@ -208,17 +208,7 @@
             font-weight: 300;
         }
 
-        .section-title .count .interactive-note {
-            display: inline-block;
-            margin-left: 12px;
-            font-size: 11px;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            color: var(--gold);
-            opacity: 0.7;
-            border-left: 1px solid var(--border-gold);
-            padding-left: 12px;
-        }
+
 
         /* ============================================================
                    EQUATION GRID
@@ -529,12 +519,7 @@
             text-align: right;
         }
 
-        /* ============================================================
-                   TAP HINT (mobile only)
-                   ============================================================ */
-        .tap-hint {
-            display: none;
-        }
+
 
         /* ============================================================
                    VARIABLE MODAL
@@ -718,13 +703,7 @@
                 letter-spacing: 1.2px;
             }
 
-            .section-title .interactive-note {
-                display: block;
-                margin-left: 0;
-                margin-top: 6px;
-                border-left: none;
-                padding-left: 0;
-            }
+
 
             .equation-grid {
                 grid-template-columns: 1fr;
@@ -743,22 +722,7 @@
                 max-height: 0;
             }
 
-            .tap-hint {
-                display: block;
-                font-size: 10px;
-                color: var(--text-muted);
-                text-align: center;
-                letter-spacing: 0.8px;
-                text-transform: uppercase;
-                margin-top: 8px;
-                opacity: 0.4;
-                transition: opacity var(--transition);
-            }
 
-            .card:hover .tap-hint,
-            .card:focus-within .tap-hint {
-                opacity: 0;
-            }
 
             .card:hover .card-reveal,
             .card:focus-within .card-reveal {
@@ -782,11 +746,7 @@
             }
         }
 
-        @media (min-width: 821px) {
-            .tap-hint {
-                display: none;
-            }
-        }
+
 
         /* ============================================================
                    FOOTER NOTE
@@ -881,7 +841,7 @@
     ============================================================ -->
     <header class="museum-header">
         <div class="museum-brand">
-            <span class="top-line">✦ Historical Technical Museum</span>
+            <span class="top-line">Historical Technical Museum</span>
             <h1>Classic <span class="gold">Patents</span></h1>
             <div class="sub">Aerodynamics &amp; 6‑DoF Flight · Equation Archive</div>
         </div>
@@ -889,7 +849,6 @@
             <a href="#">Catalog</a>
             <a href="#">Timeline</a>
             <a href="#">Mission</a>
-            <span class="search-icon">⌕</span>
         </nav>
     </header>
 
@@ -898,8 +857,7 @@
     ============================================================ -->
     <div class="section-title">
         <h2>Governing <em>Equations</em> of Flight</h2>
-        <span class="count">8 exhibits · hover to decode <span class="interactive-note">👆 tap any variable for
-                details</span></span>
+        <span class="count">8 exhibits</span>
     </div>
 
     <!-- ============================================================
@@ -940,7 +898,7 @@
 
             <div class="card-reveal">
                 <div class="decoder-block">
-                    <div class="label">📖 Plain English Decoder</div>
+                    <div class="label">Plain English Decoder</div>
                     <div class="text">
                         The Navier–Stokes equations describe how the velocity of a fluid evolves under the influence of
                         pressure gradients, internal friction (viscosity), and external body forces like gravity. They
@@ -948,7 +906,7 @@
                     </div>
                 </div>
                 <div class="insight-block">
-                    <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
+                    <div class="label">Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
                         These equations govern every aerodynamic phenomenon — from the thin boundary layer over a wing
                         to the turbulent wake behind a fuselage. Solving them (even approximately) is the central
@@ -964,7 +922,6 @@
                 </div>
                 <span class="val">—</span>
             </div>
-            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
         <!-- ====== 2. PRANDTL INDUCED DRAG ====== -->
@@ -995,7 +952,7 @@
 
             <div class="card-reveal">
                 <div class="decoder-block">
-                    <div class="label">📖 Plain English Decoder</div>
+                    <div class="label">Plain English Decoder</div>
                     <div class="text">
                         The <strong>induced aerodynamic drag penalty</strong> grows with the <em>square</em> of the lift
                         coefficient, constrained by the geometric aspect ratio and the spanwise efficiency factor.
@@ -1003,7 +960,7 @@
                     </div>
                 </div>
                 <div class="insight-block">
-                    <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
+                    <div class="label">Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
                         The Wright brothers discovered that roll control cannot exist independently of yaw control.
                         Twisting one wing upward increases C<sub>L</sub>, which by this exact equation
@@ -1020,7 +977,6 @@
                 </div>
                 <span class="val">0.00</span>
             </div>
-            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
         <!-- ====== 3. CANARD PITCH EQUILIBRIUM ====== -->
@@ -1058,7 +1014,7 @@
 
             <div class="card-reveal">
                 <div class="decoder-block">
-                    <div class="label">📖 Plain English Decoder</div>
+                    <div class="label">Plain English Decoder</div>
                     <div class="text">
                         Net <strong>pitching moment coefficient</strong> balances the zero‑lift wing camber moment, the
                         center‑of‑gravity static margin across the mean aerodynamic chord, total wing lift, and the
@@ -1066,7 +1022,7 @@
                     </div>
                 </div>
                 <div class="insight-block">
-                    <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
+                    <div class="label">Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
                         The Wrights placed the horizontal elevator in front (a canard) rather than behind the wings.
                         When pulling up to climb, a canard creates <strong>positive upward lift</strong> rather than the
@@ -1083,7 +1039,6 @@
                 </div>
                 <span class="val">—</span>
             </div>
-            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
         <!-- ====== 4. BERNOULLI ====== -->
@@ -1117,7 +1072,7 @@
 
             <div class="card-reveal">
                 <div class="decoder-block">
-                    <div class="label">📖 Plain English Decoder</div>
+                    <div class="label">Plain English Decoder</div>
                     <div class="text">
                         Along a streamline, the <strong>total mechanical energy</strong> per unit volume of a fluid is
                         conserved. Where speed increases, pressure decreases — and vice versa. This is the fundamental
@@ -1125,7 +1080,7 @@
                     </div>
                 </div>
                 <div class="insight-block">
-                    <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
+                    <div class="label">Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
                         The pressure difference between the upper and lower surfaces of a wing is what creates lift. By
                         accelerating air over the curved top surface, Bernoulli tells us the pressure drops — and the
@@ -1141,7 +1096,6 @@
                 </div>
                 <span class="val">—</span>
             </div>
-            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
         <!-- ====== 5. REYNOLDS NUMBER ====== -->
@@ -1174,7 +1128,7 @@
 
             <div class="card-reveal">
                 <div class="decoder-block">
-                    <div class="label">📖 Plain English Decoder</div>
+                    <div class="label">Plain English Decoder</div>
                     <div class="text">
                         The Reynolds number is the <strong>ratio of inertial forces to viscous forces</strong> in a
                         flow. It tells us whether the flow will be smooth (laminar) or chaotic (turbulent) — a critical
@@ -1182,7 +1136,7 @@
                     </div>
                 </div>
                 <div class="insight-block">
-                    <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
+                    <div class="label">Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
                         At low Re (creeping flow), viscosity dominates and flow is laminar. At high Re (like full‑scale
                         aircraft), inertia dominates and flow becomes turbulent — which actually <strong>delays
@@ -1198,7 +1152,6 @@
                 </div>
                 <span class="val">—</span>
             </div>
-            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
         <!-- ====== 6. LIFT EQUATION ====== -->
@@ -1231,7 +1184,7 @@
 
             <div class="card-reveal">
                 <div class="decoder-block">
-                    <div class="label">📖 Plain English Decoder</div>
+                    <div class="label">Plain English Decoder</div>
                     <div class="text">
                         Lift is proportional to the <strong>dynamic pressure</strong> (½ρv²), the wing area, and the
                         lift coefficient. To get more lift, you can fly faster, increase wing area, or increase the
@@ -1239,7 +1192,7 @@
                     </div>
                 </div>
                 <div class="insight-block">
-                    <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
+                    <div class="label">Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
                         This simple equation is the <strong>starting point for every aircraft design</strong>. For a
                         given weight, the required C<sub>L</sub> determines the wing loading and angle of attack. The
@@ -1256,7 +1209,6 @@
                 </div>
                 <span class="val">—</span>
             </div>
-            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
         <!-- ====== 7. CONTINUITY ====== -->
@@ -1286,7 +1238,7 @@
 
             <div class="card-reveal">
                 <div class="decoder-block">
-                    <div class="label">📖 Plain English Decoder</div>
+                    <div class="label">Plain English Decoder</div>
                     <div class="text">
                         For a steady flow, the <strong>mass flow rate</strong> is conserved: what goes in must come out.
                         If the flow area decreases, the speed must increase (and vice versa) — provided density is
@@ -1294,7 +1246,7 @@
                     </div>
                 </div>
                 <div class="insight-block">
-                    <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
+                    <div class="label">Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
                         This is why air accelerates over the top of a wing (area constriction) and why a <strong>venturi
                             tube</strong> can be used to measure flow speed. In supersonic flow, the density changes too
@@ -1310,7 +1262,6 @@
                 </div>
                 <span class="val">—</span>
             </div>
-            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
         <!-- ====== 8. EULER EQUATIONS ====== -->
@@ -1345,7 +1296,7 @@
 
             <div class="card-reveal">
                 <div class="decoder-block">
-                    <div class="label">📖 Plain English Decoder</div>
+                    <div class="label">Plain English Decoder</div>
                     <div class="text">
                         The Euler equations are the <strong>inviscid (friction‑free)</strong> limit of the Navier–Stokes
                         equations. They describe how an ideal fluid moves under pressure and gravity, but with <em>no
@@ -1354,7 +1305,7 @@
                     </div>
                 </div>
                 <div class="insight-block">
-                    <div class="label">⚡ Physical Principle &amp; Engineering Insight</div>
+                    <div class="label">Physical Principle &amp; Engineering Insight</div>
                     <div class="text">
                         These equations form the basis of <strong>potential flow theory</strong> and are used to compute
                         lift distributions on wings using panel methods. They also explain why a <strong>turning
@@ -1371,7 +1322,6 @@
                 </div>
                 <span class="val">—</span>
             </div>
-            <div class="tap-hint">↕ hover to decode · 👆 tap symbols for details</div>
         </div>
 
     </div>
@@ -1389,14 +1339,14 @@
     ============================================================ -->
     <div class="modal-backdrop" id="varModal" role="dialog" aria-modal="true" aria-labelledby="modalVarName">
         <div class="modal-card">
-            <button class="modal-close" id="modalClose" aria-label="Close variable details">✕</button>
+            <button class="modal-close" id="modalClose" aria-label="Close variable details">&times;</button>
             <span class="modal-symbol" id="modalSymbol">ρ</span>
             <div class="modal-name" id="modalName">Density</div>
             <span class="modal-units" id="modalUnits">kg/m³</span>
             <div class="modal-divider"></div>
-            <div class="modal-section-label">📖 Description</div>
+            <div class="modal-section-label">Description</div>
             <div class="modal-description" id="modalDescription"></div>
-            <div class="modal-section-label">⚡ Role in Equation</div>
+            <div class="modal-section-label">Role in Equation</div>
             <div class="modal-role" id="modalRole"></div>
         </div>
     </div>
@@ -1787,8 +1737,7 @@
             // ============================================================
             // Already handled via CSS :focus-within on .card
 
-            console.log('✈️ Aerodynamics Museum · Interactive Variable Decoder loaded');
-            console.log('👆 Click or tap any variable symbol in the equations to learn more');
+            console.log('Aerodynamics Museum · Interactive Variable Decoder loaded');
         })();
     </script>
 
